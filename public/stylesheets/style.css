@@ -1,12 +1,33 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00b7ff;
+/* MAIN PAGE */
+
+.main-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
 }
 
-h1 {
-  color: 15px;
+.main-img {
+  width: 500px;
+  height: 500px;
+}
+
+.gem-container {
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 15px;
+}
+
+.gem-img {
+  width: 250px;
+  height: 250px;
 }

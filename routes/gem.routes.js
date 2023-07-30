@@ -1,10 +1,6 @@
 const Gem = require('../models/Gem.model');
 const router = require('express').Router();
 
-// router.get('/homepage', (req, res) => {
-//   res.render('homepage');
-// });
-
 router.get('/create', (req, res) => {
   res.render('create-gem');
 });
@@ -23,6 +19,7 @@ router.post('/create', (req, res) => {
 router.get('/main', (req, res) => {
   Gem.find()
     .then((gems) => {
+      console.log(gems);
       res.render('main', { gems });
     })
     .catch((err) => {
