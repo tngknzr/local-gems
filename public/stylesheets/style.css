@@ -5,9 +5,23 @@
 
 /* MAIN PAGE */
 
-.main-forms {
+.main-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.main-form {
   margin-top: 25px;
   margin-left: 25px;
+}
+
+.main-form > input {
+  margin-bottom: 25px;
+}
+
+.main-form > select {
+  border-top-width: initial;
 }
 
 .main-img-container {
@@ -40,7 +54,12 @@
 /* Gems Page */
 
 .error {
-  color: orange;
-  font-size: 1.5rem;
+  color: red;
   border-radius: 50px;
+}
+
+.gem-description {
+  font-size: 14px;
+  color: grey;
+  font-weight: 100;
 }

@@ -26,14 +26,14 @@ router.get('/main', (req, res) => {
     });
 });
 
+// the main search query
 router.get('/search', (req, res) => {
-  const { localGem } = req.query;
-  console.log(localGem);
-  Gem.find({ name: { $regex: localGem } })
+  const { localGem, location } = req.query;
+  Gem.find({ gemName: { $regex: localGem }, location: location })
     .then((gems) => {
       console.log(gems);
       if (gems.length === 0) {
-        res.render('gems', { errorMsg: 'Sorry try again' });
+        res.render('main', { errorMsg: 'Sorry no local gem within that category try another search' });
       } else {
         res.render('gems', { gems: gems });
       }
@@ -43,5 +43,3 @@ router.get('/search', (req, res) => {
     });
 });
 module.exports = router;
-
-// localhost:3000/main?search="coffee"

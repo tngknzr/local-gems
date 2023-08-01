@@ -1,15 +1,28 @@
-<form class='main-forms' action='/search' method='GET'>
-  <input type='text' name='localGem' placeholder='Search for local gem' />
-  <button type='submit'>Submit</button>
-  <input type='text' placeholder='Location' />
-  <button type='submit'>Submit</button>
-</form>
+<div class='main-form-container'>
+  <form class='main-form' action='/search' method='GET'>
+    <input type='text' name='localGem' placeholder='Search for local gem' required='true' />
+    <button type='submit'>Submit</button>
+    <select name='location' id='location-select'>
+      <option value=''>--Choose a location--</option>
+      <option value='Ohrid'>Ohrid</option>
+      <option value='Spain'>Spain</option>
+    </select>
+    <button type='submit'>Submit</button>
+  </form>
+</div>
+
+{{#if errorMsg}}
+  <span class='error'>
+    {{errorMsg}}
+  </span>
+{{/if}}
 
 <div class='main-content-container text-center'>
   <div class='main-img-container'>
     <img class='main-img' src='{{gems.0.imgUrl}}' alt='' />
   </div>
-  <h3>{{gems.0.description}}</h3>
+
+  <h3 class='gem-description'> "{{gems.0.description}}"</h3>
 </div>
 
 <div class='gem-container'>
@@ -17,7 +30,7 @@
     <div>
       <img class='gem-img' src='{{imgUrl}}' alt='local gem' />
 
-      <h3>{{description}}</h3>
+      <h3 class='gem-description'>"{{description}}"</h3>
 
     </div>
   {{/each}}
