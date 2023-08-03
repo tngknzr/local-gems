@@ -1,0 +1,20 @@
+<h1>welcome to LocalGems</h1>
+
+{{#if userInSession}}
+  <h1>Welcome, {{ userInSession.username }}!</h1>
+  <h2> Upload profile picture!</h2>
+  <img src="" alt="">
+  <h3>Username</h3> 
+  {{!-- place holder to edit your username should go here --}}
+  <h3>About me</h3>
+  {{!-- Place holder to edit your about me should go here --}}
+  <h3>Change password</h3>
+  {{!-- Place golder to edit your pass should go here --}}
+  <h3>Change Email</h3>
+  {{!-- Place golder to edit your Email should go here --}}
+  <button>
+    <a href="/userProfile">Confirm details</a>
+  </button>
+{{else}}
+  <p>Still no logged in user, sorry!</p>
+{{/if}}
