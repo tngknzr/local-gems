@@ -10,41 +10,10 @@
    </head>
 
    <body>
-    
-      <nav>
-        
-      <ul>
-        
-        <li >
-          {{#if  userInSession }}
-          <a href="/userProfile"> Profile</a>
-          <form action="/logout" method="POST">
-            <button>Logout</button>
-          </form>
-            {{/if}}
-            {{#unless userInSession}}
-          <a href="/signup">Signup</a>
-          <a href="/login">Login</a>
-            {{/unless}}
-        </li>
-       
-      </ul>
-        
-    </nav>
- 
+
       {{{body}}}
 
       <script src="/js/script.js"></script>
    </body>
 
 </html>
-
-{{!-- {{#if userInSession}}
-          <form class='auth__form' id='logout-form' action='/logout' method='POST'>
-            <button class='auth__link auth__link--button'>Logout</button>
-          </form>
-          <a class='auth__link auth__link--profile' href='/userProfile'>Profile</a>
-        {{else}}
-          <a class='auth__link auth__link--signup' href='/signup'>Sign up</a>
-          <a class='auth__link auth__link--login' href='/login'>Login</a>
-        {{/if}} --}}
