@@ -4,6 +4,8 @@
 
 
 <div>
-  <h2>{{gems.imgUrl}}</h2>
-  <h2>{{gems.name}}</h2>
+  {{#each gems}}
+  <h2>{{imgUrl}}</h2>
+  <h2>{{gemName}}</h2>
+  {{/each}}
 </div>

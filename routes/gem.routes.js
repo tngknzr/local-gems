@@ -26,7 +26,7 @@ router.get('/main', (req, res) => {
     });
 });
 
-// the main search query
+// the main search queries for gem and location
 router.get('/search', (req, res) => {
   const { localGem, location } = req.query;
   Gem.find({ gemName: { $regex: localGem }, location: location })
