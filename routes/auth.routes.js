@@ -4,7 +4,10 @@ const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
-router.get('/signup', (req, res) => res.render('auth/signup'));
+const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
+
+
+router.get('/signup',isLoggedOut, (req, res) => res.render('auth/signup'));
 
 router.post('/signup', (req, res, next) => {
     console.log('The form data: ', req.body);
@@ -35,6 +38,7 @@ router.post('/signup', (req, res, next) => {
           });
       })
       .then(userFromDB => {
+        req.session.currentUser = userFromDB;
         res.redirect('/userProfile');
       })
       .catch(error => {
@@ -57,7 +61,7 @@ router.post('/signup', (req, res, next) => {
       })
   });
   //LOGIN DOWN
-  router.get('/login', (req, res) => res.render('auth/login'));
+  router.get('/login',isLoggedIn, (req, res) => res.render('auth/login'));
   router.post('/login', (req, res, next) => {
     const { email, password } = req.body;
    
@@ -86,7 +90,7 @@ router.post('/signup', (req, res, next) => {
       })
       .catch(error => next(error));
   });
-  router.post('/logout', (req, res, next) => {
+  router.post('/logout',isLoggedIn, (req, res, next) => {
     req.session.destroy(err => {
       if (err) next(err);
       res.redirect('/');
@@ -94,7 +98,9 @@ router.post('/signup', (req, res, next) => {
   });
 
 
-  router.get('/userProfile', (req, res) => res.render('user/user-profile'));
+  router.get('/userProfile', (req, res) => {
+    console.log(req.session)
+    res.render('user/user-profile', {userInSession: req.session.currentUser})});
 
   
 
