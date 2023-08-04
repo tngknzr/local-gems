@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
+
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 const Gem = require('../models/Gem.model');
 
