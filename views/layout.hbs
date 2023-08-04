@@ -18,19 +18,21 @@
     <nav>
 
       <ul>
+        <li><a href='/main'>Home</a></li>
+        <li><a href='/'>About</a></li>
+        {{#if userInSession}}
 
-        <li>
-          {{#if userInSession}}
-            <a href='/userProfile'> Profile</a>
+          <li><a href='/userProfile'> Profile</a></li>
+          <li>
             <form action='/logout' method='POST'>
               <button>Logout</button>
-            </form>
-          {{/if}}
-          {{#unless userInSession}}
-            <a href='/signup'>Signup</a>
-            <a href='/login'>Login</a>
-          {{/unless}}
-        </li>
+            </form></li>
+
+        {{/if}}
+        {{#unless userInSession}}
+          <li> <a href='/signup'>Signup</a></li>
+          <li><a href='/login'>Login</a></li>
+        {{/unless}}
 
       </ul>
 

@@ -2,9 +2,10 @@ const Gem = require('../models/Gem.model');
 const router = require('express').Router();
 
 router.get('/create', (req, res) => {
-  res.render('create-gem');
+  res.render('create-gem', { userInSession: req.session.currentUser });
 });
 
+// added createdBy variable for rendering on userProfile functionality
 router.post('/create', (req, res) => {
   const { gemName, description, location, imgUrl, category } = req.body;
   const createdBy = req.session.currentUser._id;
@@ -20,7 +21,7 @@ router.post('/create', (req, res) => {
 router.get('/main', (req, res) => {
   Gem.find()
     .then((gems) => {
-      res.render('main', { gems });
+      res.render('main', { gems, userInSession: req.session.currentUser });
     })
     .catch((err) => {
       console.log(err);
@@ -36,7 +37,7 @@ router.get('/search', (req, res) => {
       if (gems.length === 0) {
         res.render('main', { errorMsg: 'Sorry no local gem within that category try another search' });
       } else {
-        res.render('gems', { gems: gems });
+        res.render('gems', { gems: gems, userInSession: req.session.currentUser });
       }
     })
     .catch((err) => {

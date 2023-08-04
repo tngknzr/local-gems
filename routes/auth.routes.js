@@ -88,6 +88,7 @@ router.post('/logout', (req, res, next) => {
     });
 });
 
+// added createdBy object for rendering gem on userProfile
 router.get('/userProfile', (req, res) => {
   const currentUser = req.session.currentUser;
   Gem.find({ createdBy: currentUser._id })
