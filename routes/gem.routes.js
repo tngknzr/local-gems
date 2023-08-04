@@ -7,7 +7,8 @@ router.get('/create', (req, res) => {
 
 router.post('/create', (req, res) => {
   const { gemName, description, location, imgUrl, category } = req.body;
-  Gem.create({ gemName, description, location, imgUrl, category })
+  const createdBy = req.session.currentUser._id;
+  Gem.create({ gemName, description, location, imgUrl, category, createdBy })
     .then(() => {
       res.redirect('/main');
     })
