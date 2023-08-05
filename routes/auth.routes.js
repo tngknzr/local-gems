@@ -107,18 +107,18 @@ router.post('/userProfile', fileUploader.single('profileUrl'), (req, res) => {
   let file = req.file ? req.file.path : undefined;
   User.findByIdAndUpdate(req.session.currentUser._id,{ username, email, description, imgProfile: file }, {new:true})
     .then(newlyCreatedProfileFromDB => {
-      console.log('TEST2', newlyCreatedProfileFromDB );
-      res.send(newlyCreatedProfileFromDB)
+      
+      res.redirect('/userProfile')
 
     })
     .catch(error => console.log(`Error while creating a new user profile: ${error}`));
 });
 
 router.get('/userProfile', (req, res) => {
-  User.find()
+  User.find(_id, req.session.currentUser._id)
   .then((userProfilePic)=>{
     console.log(userProfilePic)
-    res.render('user/user-profile');
+    res.render('user/user-profile',{userProfilePic:userProfilePic});
   })
 })
 

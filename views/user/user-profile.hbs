@@ -7,20 +7,24 @@
   <form  action="/userProfile" method="post"  enctype="multipart/form-data">
   <label for='imgUrl'>
     Upload Profile Pic
+    <img src="{{userInSession.imgProfile}}" alt="">
     <input type='file' name='profileUrl' />
   </label>
-
+    <h3>About me</h3>
+    <div style="border: 10px solid black;">
+      {{!-- heere goes the texttareadescription --}}
+    </div>
+  <textarea name='' id='' cols='30' rows='10'></textarea>
     <button>confirm NEW details</button>
   </form>
   
-  <h3>Username</h3>
+  
 
   {{userInSession.username}}
 
-  <h3>About me</h3>
-  <textarea name='' id='' cols='30' rows='10'></textarea>
   
-  <button>confirm details</button>
+  
+  
   <div>
     {{#each gems}}
       <img class='gem-img' src='{{imgUrl}}' alt='local gem' />
