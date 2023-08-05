@@ -3,21 +3,28 @@
 {{#if userInSession}}
 
   <h1>Welcome, {{userInSession.username}}!</h1>
+
+  <form  action="/userProfile" method="post"  enctype="multipart/form-data">
   <label for='imgUrl'>
     Upload Profile Pic
-    <input type='file' name='profileUrl' accept='image/png, image/jpeg' />
+    <img src="{{userInSession.imgProfile}}" alt="">
+    <input type='file' name='profileUrl' />
   </label>
-  <h3>Username</h3>
+    <h3>About me</h3>
+    <div style="border: 10px solid black;">
+      {{!-- heere goes the texttareadescription --}}
+    </div>
+  <textarea name='' id='' cols='30' rows='10'></textarea>
+    <button>confirm NEW details</button>
+  </form>
+  
+  
 
   {{userInSession.username}}
 
-  <h3>About me</h3>
-  <textarea name='' id='' cols='30' rows='10'></textarea>
-  <h3>Change password</h3>
-  {{! Place golder to edit your pass should go here }}
-  <h3>Change Email</h3>
-  {{! Place golder to edit your Email should go here }}
-  <button>confirm details</button>
+  
+  
+  
   <div>
     {{#each gems}}
       <img class='gem-img' src='{{imgUrl}}' alt='local gem' />
