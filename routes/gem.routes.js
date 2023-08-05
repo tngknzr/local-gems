@@ -1,8 +1,15 @@
+const { isLoggedIn } = require('../middleware/route-guard');
 const Gem = require('../models/Gem.model');
 const router = require('express').Router();
 
 router.get('/create', (req, res) => {
   res.render('create-gem', { userInSession: req.session.currentUser });
+});
+
+router.get('/', isLoggedIn, (req, res) => {
+  if (req.session.currentuser) {
+    res.render('create-gem');
+  }
 });
 
 // added createdBy variable for rendering on userProfile functionality

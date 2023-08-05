@@ -92,6 +92,7 @@ router.post('/logout', (req, res, next) => {
 router.get('/userProfile', (req, res) => {
   const currentUser = req.session.currentUser;
   Gem.find({ createdBy: currentUser._id })
+    .populate('createdBy')
     .then((gems) => {
       res.render('user/user-profile', { userInSession: currentUser, gems });
     })
@@ -101,3 +102,5 @@ router.get('/userProfile', (req, res) => {
 });
 
 module.exports = router;
+
+//
