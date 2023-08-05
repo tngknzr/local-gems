@@ -61,7 +61,7 @@ router.post('/signup', (req, res, next) => {
       })
   });
   //LOGIN DOWN
-  router.get('/login',isLoggedIn, (req, res) => res.render('auth/login'));
+  router.get('/login', (req, res) => res.render('auth/login'));
   router.post('/login', (req, res, next) => {
     const { email, password } = req.body;
    
