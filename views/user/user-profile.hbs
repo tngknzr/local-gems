@@ -2,33 +2,26 @@
 
 {{#if userInSession}}
 
-  <h1>Welcome, {{userInSession.username}}!</h1>
+  <h2>Welcome, {{userInSession.username}}!</h2>
 
-  <form  action="/userProfile" method="post"  enctype="multipart/form-data">
-  <label for='imgUrl'>
-    Upload Profile Pic
-    <img src="{{userInSession.imgProfile}}" alt="">
-    <input type='file' name='profileUrl' />
-  </label>
+  <form action='/userProfile' method='post' enctype='multipart/form-data'>
+    <label for='imgUrl'>
+      Upload Profile Pic
+      <img src='{{userInSession.imgProfile}}' alt='' />
+      <input type='file' name='profileUrl' />
+    </label>
     <h3>About me</h3>
-    <div style="border: 10px solid black;">
-      {{!-- heere goes the texttareadescription --}}
+    <div style='border: 10px solid black;'>
+      {{! heere goes the texttareadescription }}
     </div>
-  <textarea name='' id='' cols='30' rows='10'></textarea>
+    <textarea name='' id='' cols='30' rows='10'></textarea>
     <button>confirm NEW details</button>
   </form>
-  
-  
 
-  {{userInSession.username}}
-
-  
-  
-  
   <div>
     {{#each gems}}
+      <h3>Local gems uploaded by: {{createdBy.username}}</h3>
       <img class='gem-img' src='{{imgUrl}}' alt='local gem' />
-
       <h3 class='gem-description'>"{{description}}"</h3>
     {{/each}}
   </div>

@@ -1,6 +1,7 @@
-const { isLoggedIn } = require('../middleware/route-guard');
-const Gem = require('../models/Gem.model');
 const router = require('express').Router();
+const Gem = require('../models/Gem.model');
+const { isLoggedIn } = require('../middleware/route-guard');
+const fileUploader = require('../config/cloudinary.config');
 
 router.get('/create', (req, res) => {
   res.render('create-gem', { userInSession: req.session.currentUser });
@@ -13,9 +14,11 @@ router.get('/', isLoggedIn, (req, res) => {
 });
 
 // added createdBy variable for rendering on userProfile functionality
-router.post('/create', (req, res) => {
-  const { gemName, description, location, imgUrl, category } = req.body;
+router.post('/create', fileUploader.single('imgUrl'), (req, res) => {
+  console.log(req.file);
+  const { gemName, description, location, category } = req.body;
   const createdBy = req.session.currentUser._id;
+  let imgUrl = req.file ? req.file.path : undefined;
   Gem.create({ gemName, description, location, imgUrl, category, createdBy })
     .then(() => {
       res.redirect('/main');

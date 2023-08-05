@@ -1,6 +1,6 @@
 <h1>Create Local Gem</h1>
 
-<form action='/create' method='POST'>
+<form action='/create' method='POST' enctype='multipart/form-data'>
   <label for='gemName'>
     Gem:
     <input type='text' name='gemName' />
@@ -15,7 +15,7 @@
   </label>
   <label for='imgUrl'>
     Img:
-    <input type='file' name='imgUrl' accept='image/png, image/jpeg' />
+    <input type='file' name='imgUrl' />
   </label>
   <label for='category'>
     Category:

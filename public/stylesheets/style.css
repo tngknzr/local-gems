@@ -28,12 +28,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 150px;
+  margin-top: 25px;
 }
 
 .main-img {
   width: 500px;
-  height: 500px;
+  height: auto;
 }
 
 .gem-container {
@@ -48,7 +48,7 @@
 
 .gem-img {
   width: 250px;
-  height: 250px;
+  height: auto;
 }
 
 /* Gems Page */
