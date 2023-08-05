@@ -3,20 +3,23 @@
 {{#if userInSession}}
 
   <h1>Welcome, {{userInSession.username}}!</h1>
+
+  <form  action="/userProfile" method="post"  enctype="multipart/form-data">
   <label for='imgUrl'>
     Upload Profile Pic
-    <input type='file' name='profileUrl' accept='image/png, image/jpeg' />
+    <input type='file' name='profileUrl' />
   </label>
+
+    <button>confirm NEW details</button>
+  </form>
+  
   <h3>Username</h3>
 
   {{userInSession.username}}
 
   <h3>About me</h3>
   <textarea name='' id='' cols='30' rows='10'></textarea>
-  <h3>Change password</h3>
-  {{! Place golder to edit your pass should go here }}
-  <h3>Change Email</h3>
-  {{! Place golder to edit your Email should go here }}
+  
   <button>confirm details</button>
   <div>
     {{#each gems}}
