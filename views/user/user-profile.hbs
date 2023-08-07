@@ -5,16 +5,23 @@
   <h1>Welcome, {{userInSession.username}}!</h1>
 
   <form  action="/userProfile" method="post"  enctype="multipart/form-data">
+  
   <label for='imgUrl'>
     Upload Profile Pic
     <img src="{{userInSession.imgProfile}}" alt="">
     <input type='file' name='profileUrl' />
   </label>
+
     <h3>About me</h3>
+
     <div style="border: 10px solid black;">
       {{!-- heere goes the texttareadescription --}}
+      {{userInSession.description}}
     </div>
-  <textarea name='' id='' cols='30' rows='10'></textarea>
+
+  <textarea name='description' id='' cols='30' rows='10'>{{userInSession.description}}</textarea>>
+
+  </textarea>
     <button>confirm NEW details</button>
   </form>
   
