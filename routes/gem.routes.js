@@ -16,10 +16,10 @@ router.get('/', isLoggedIn, (req, res) => {
 // added createdBy variable for rendering on userProfile functionality
 router.post('/create', fileUploader.single('imgUrl'), (req, res) => {
   console.log(req.file);
-  const { gemName, description, location, category } = req.body;
+  const { gemName, description, location, venueName, category } = req.body;
   const createdBy = req.session.currentUser._id;
   let imgUrl = req.file ? req.file.path : undefined;
-  Gem.create({ gemName, description, location, imgUrl, category, createdBy })
+  Gem.create({ gemName, description, location, venueName, imgUrl, category, createdBy })
     .then(() => {
       res.redirect('/main');
     })
@@ -41,6 +41,8 @@ router.get('/main', (req, res) => {
 // the main search queries for gem and location
 router.get('/search', (req, res) => {
   const { localGem, location } = req.query;
+  console.log('localGem', localGem);
+  console.log('location', location);
   Gem.find({ gemName: { $regex: localGem }, location: location })
     .then((gems) => {
       console.log(gems);
@@ -54,4 +56,7 @@ router.get('/search', (req, res) => {
       console.log(err);
     });
 });
+
+// Delete Gem Route
+
 module.exports = router;

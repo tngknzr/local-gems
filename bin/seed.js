@@ -5,28 +5,58 @@ const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/local';
 
 const gems = [
   {
-    gemName: 'coffee',
+    gemName: 'Coffee',
     description: 'best ever coffee',
     location: 'Ohrid',
+    venueName: 'Steve Cafe',
     imgUrl: 'https://i.postimg.cc/yNyfzvdX/coffee.jpg',
     category: 'drink',
     createdby: 'Biljana',
   },
   {
-    gemName: 'coffee',
-    description: 'best ever coffee',
+    gemName: 'Ancient Theatre',
+    description: 'breathtaking views',
+    location: 'Ohrid',
+    venueName: 'Ancient Theatre of Ohrid',
+    imgUrl: 'https://i.postimg.cc/RhjdbQ7W/amphitheater.jpg',
+    category: 'historical site',
+    createdby: 'Sara',
+  },
+  {
+    gemName: 'SUP',
+    description: 'The best standup paddleboarding',
+    location: 'Ohrid',
+    venueName: 'SUP Club Ohrid',
+    imgUrl: 'https://i.postimg.cc/6qjrDVCr/sups.png',
+    category: 'water activity',
+    createdby: 'Goce',
+  },
+  {
+    gemName: 'Flamenco Dance',
+    description: 'Traditional spanish flamenco show',
     location: 'Madrid',
-    imgUrl: 'https://i.postimg.cc/yNyfzvdX/coffee.jpg',
-    category: 'drink',
-    createdby: 'Agustin',
+    venueName: 'Flamenco Ramblas',
+    imgUrl: 'https://i.postimg.cc/J0pVj6SC/flamenco-madrid.jpg',
+    category: 'entertainment',
+    createdby: 'Maria',
   },
   {
-    gemName: 'coffee',
-    description: 'best ever coffee',
-    location: 'Paris',
-    imgUrl: 'https://i.postimg.cc/yNyfzvdX/coffee.jpg',
-    category: 'drink',
-    createdby: 'Biljana',
+    gemName: 'Tapas',
+    description: 'Best tapas tour in the city',
+    location: 'Madrid',
+    venueName: 'Wine and Tapas',
+    imgUrl: 'https://i.postimg.cc/d36krFqQ/wine-tapas-madrid.jpg',
+    category: 'food',
+    createdby: 'Mateo',
+  },
+  {
+    gemName: 'Paella',
+    description: 'Most delicious paella Ive eaten',
+    location: 'Madrid',
+    venueName: 'Restaurante Rodriguez',
+    imgUrl: 'https://i.postimg.cc/85x0R8zv/paella-madrid.png',
+    category: 'food',
+    createdby: 'Diego',
   },
 ];
 
@@ -51,50 +81,3 @@ mongoose
   .catch((err) => {
     console.log(`An error occurred while creating gems from the DB: ${err}`);
   });
-
-// const mongoose = require('mongoose');
-// const Product = require('../models/Gem.model');
-
-// mongoose
-//   .connect('mongodb://localhost:27017/local', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => {
-//     console.log('Mongo Connection Open');
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
-// const gems = [
-//   {
-//     gemName: 'coffee',
-//     description: 'best ever coffee',
-//     location: 'Ohrid',
-//     imgUrl: 'https://i.postimg.cc/yNyfzvdX/coffee.jpg',
-//     category: 'drink',
-//     createdby: 'Biljana',
-//   },
-//   // Add more gems here as needed...
-// ];
-
-// const seedData = async () => {
-//   try {
-//     // Clear existing data (optional)
-//     await Product.deleteMany({});
-
-//     // Insert the new data
-//     await Product.insertMany(gems);
-
-//     console.log('Data seeding completed successfully.');
-//   } catch (err) {
-//     console.error('Error while seeding data:', err);
-//   } finally {
-//     // Close the database connection after seeding
-//     mongoose.disconnect();
-//   }
-// };
-
-// // Run the seed function
-// seedData();

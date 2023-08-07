@@ -3,12 +3,46 @@
   padding: 0;
 }
 
+/* Layout Page */
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-ul {
+  list-style: none;
+  display: flex;
+  justify-content: end;
+  gap: 25px;
+  font-size: 20px;
+  padding: 25px 25px;
+}
+
+.nav-ul a {
+  text-decoration: none;
+}
+
+hr {
+  margin-top: 0 !important;
+}
+
+.mobile-menu {
+  display: none;
+}
+
 /* MAIN PAGE */
 
 .main-form-container {
   display: flex;
-  flex-direction: column;
-  width: 400px;
+  justify-content: center;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .main-form {
@@ -16,12 +50,44 @@
   margin-left: 25px;
 }
 
-.main-form > input {
+.main-input {
+  height: 75px;
+  border-radius: 50px;
+  width: 1000px;
   margin-bottom: 25px;
+  padding: 25px;
+  font-size: 20px;
+}
+
+.select-container {
+  text-align: center;
+}
+
+.select-container .select-input {
+  padding: 25px;
+  font-size: 20px;
+  width: 250px;
 }
 
 .main-form > select {
   border-top-width: initial;
+}
+
+.btn-container {
+  display: inline;
+}
+
+.main-submit-btn-container {
+  margin-bottom: 25px;
+}
+
+.main-submit-btn {
+  padding: 15px;
+  background: #ff385c;
+  border: none;
+  font-size: 26px;
+  border-radius: 50px;
+  color: white;
 }
 
 .main-img-container {
@@ -31,13 +97,12 @@
   margin-top: 25px;
 }
 
-.main-img {
-  width: 500px;
-  height: auto;
+.main-heading-container {
+  margin-top: 75px;
 }
 
 .gem-container {
-  margin-top: 150px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   display: grid;
@@ -46,20 +111,120 @@
   gap: 15px;
 }
 
+.gem-info-container {
+  margin-top: 30px;
+}
+
 .gem-img {
+  width: 400px;
+  height: 400px !important;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.profile-gem-img {
   width: 250px;
-  height: auto;
+  height: 250px !important;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.gem-img:hover {
+  transform: scale(1.2);
+}
+
+.search-input-container {
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  right: 2%;
+  top: 20%;
 }
 
 /* Gems Page */
 
 .error {
-  color: red;
-  border-radius: 50px;
+  text-align: center;
+  display: block;
+  font-size: 26px;
+  color: #ff385c;
 }
 
 .gem-description {
-  font-size: 14px;
+  font-size: 18px;
   color: grey;
   font-weight: 100;
+  text-align: center;
+}
+
+.gems-searched {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 50px;
+}
+
+.gems-searched-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Create Gems Page */
+
+.create-form-container {
+  margin: 150px auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .main-form-container {
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+
+  .main-input {
+    width: 250px;
+    margin: 0 auto 25px auto;
+    text-align: center;
+    font-size: 18px;
+    height: 10px;
+  }
+
+  .gem-container {
+    grid-template-columns: 1fr;
+  }
+
+  .search-icon {
+    font-size: 16px;
+    right: 5%;
+  }
+}
+
+@media (min-width: 600px) {
+  .main-form-container {
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+
+  .main-input {
+    width: 250px;
+    margin: 0 auto 25px auto;
+    text-align: center;
+    font-size: 18px;
+    height: 10px;
+  }
+
+  .search-icon {
+    font-size: 16px;
+    right: 5%;
+  }
 }

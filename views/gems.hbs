@@ -1,11 +1,10 @@
-<h1>Test
-
-
-
-
-<div>
+<h1 id='city-name'></h1>
+<div class='gems-searched'>
   {{#each gems}}
-  <img class='gem-img' src='{{imgUrl}}' alt='local gem' />
-  <h2>{{gemName}}</h2>
+    <div class='gems-searched-container'>
+      <img class='gem-img img-fluid' src='{{imgUrl}}' alt='local gem' />
+      <h2 class=''>{{venueName}}</h2>
+      <h2 class='gem-description'>{{description}}</h2>
+    </div>
   {{/each}}
 </div>

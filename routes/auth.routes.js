@@ -100,30 +100,44 @@ router.get('/userProfile', (req, res) => {
       console.log(err);
     });
 });
+
+// Delete uploaded gem on profile
+router.post('/gems/:id/delete', (req, res) => {
+  const currentUser = req.session.currentUser;
+  Gem.findOne({ _id: req.params.id, createdBy: currentUser._id })
+    .then((gem) => {
+      console.log(gem);
+      if (!gem) {
+        res.redirect('/userProfile');
+        return;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  Gem.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/userProfile');
+    })
+    .catch((err) => console.log(err));
+});
+
 router.get('/createProfile', (req, res) => res.render('user/user-profile'));
 
 router.post('/userProfile', fileUploader.single('profileUrl'), (req, res) => {
   const { username, email, description } = req.body;
   let file = req.file ? req.file.path : undefined;
-  User.findByIdAndUpdate(req.session.currentUser._id,{ username, email, description, imgProfile: file }, {new:true})
-    .then(newlyCreatedProfileFromDB => {
-      
-      res.redirect('/userProfile')
-
+  User.findByIdAndUpdate(req.session.currentUser._id, { username, email, description, imgProfile: file }, { new: true })
+    .then((newlyCreatedProfileFromDB) => {
+      res.redirect('/userProfile');
     })
-    .catch(error => console.log(`Error while creating a new user profile: ${error}`));
+    .catch((error) => console.log(`Error while creating a new user profile: ${error}`));
 });
 
 router.get('/userProfile', (req, res) => {
-  User.find(_id, req.session.currentUser._id)
-  .then((userProfilePic)=>{
-    console.log(userProfilePic)
-    res.render('user/user-profile',{userProfilePic:userProfilePic});
-  })
-})
-
-
+  User.find(_id, req.session.currentUser._id).then((userProfilePic) => {
+    res.render('user/user-profile', { userProfilePic: userProfilePic });
+  });
+});
 
 module.exports = router;
-
-
