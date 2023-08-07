@@ -23,10 +23,12 @@
     {{#each gems}}
 
       <img class='profile-gem-img' src='{{imgUrl}}' alt='local gem' />
+
       <h3 class='gem-description'>"{{description}}"</h3>
       <form action='/gems/{{this._id}}/delete' method='POST'>
         <button>Delete Gem</button>
       </form>
+
     {{/each}}
   </div>
 

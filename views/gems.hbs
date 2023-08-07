@@ -1,10 +1,11 @@
-<h1 id='city-name'></h1>
+<h1 class='create-gem-heading' id='city-name'>Local Gems</h1>
 <div class='gems-searched'>
   {{#each gems}}
     <div class='gems-searched-container'>
       <img class='gem-img img-fluid' src='{{imgUrl}}' alt='local gem' />
-      <h2 class=''>{{venueName}}</h2>
-      <h2 class='gem-description'>{{description}}</h2>
+      <div class='gem-info-container'>
+        <h2 class=''>{{venueName}}</h2>
+        <h2 class='gem-description'>{{description}}</h2></div>
     </div>
   {{/each}}
 </div>

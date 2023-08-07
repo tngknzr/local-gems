@@ -32,10 +32,14 @@
 <div class='main-heading-container'>
   <h1 class='text-center'>Local Gems</h1>
   <div class='gem-container'>
+
     {{#each gems}}
       <div>
 
         <img class='gem-img img-fluid' src='{{imgUrl}}' alt='local gem' />
+        <div class='heart-icon-container'>
+          <img class='heart-icon' id='heart-icon' src='../images/heart-svgrepo-com.svg' alt='' />
+        </div>
         <div class='gem-info-container'>
           <h3 class=''>{{venueName}}</h3>
           <h3 class='gem-description'>"{{description}}"</h3>
@@ -44,4 +48,5 @@
       </div>
     {{/each}}
   </div>
+  <div class='pop-up'><h4>This will pop up when heart is clicked</h4></div>
 </div>

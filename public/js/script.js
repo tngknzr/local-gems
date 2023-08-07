@@ -3,17 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('local JS imported successfully!');
 });
 
-function changeCity() {
-  const success = (position) => {
-    console.log(position);
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    console.log(latitude, longitude);
-  };
+// function changeCity() {
+//   const success = (position) => {
+//     console.log(position);
+//     const latitude = position.coords.latitude;
+//     const longitude = position.coords.longitude;
+//     console.log(latitude, longitude);
+//   };
 
-  navigator.geolocation.getCurrentPosition(success);
+//   navigator.geolocation.getCurrentPosition(success);
+// }
+
+// document.getElementById('main-form').addEventListener('submit', changeCity);
+
+// const gemInfoContainer = document.getElementById('gem-info-container');
+
+function clickHeart() {
+  console.log('Test');
 }
 
-document.getElementById('main-form').addEventListener('submit', changeCity);
-
-const gemInfoContainer = document.getElementById('gem-info-container');
+const heartIcon = document.getElementById('heart-icon').addEventListener('click', clickHeart);

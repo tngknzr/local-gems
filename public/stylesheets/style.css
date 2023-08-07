@@ -99,6 +99,7 @@ hr {
 
 .main-heading-container {
   margin-top: 75px;
+  position: relative;
 }
 
 .gem-container {
@@ -130,11 +131,10 @@ hr {
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.2s;
 }
 
 .gem-img:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .search-input-container {
@@ -144,6 +144,30 @@ hr {
   position: absolute;
   right: 2%;
   top: 20%;
+}
+
+.heart-icon-container {
+  position: relative;
+  display: inline;
+}
+
+.heart-icon {
+  width: 25px;
+  height: auto;
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+}
+
+.pop-up {
+  background-color: yellow;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: auto;
 }
 
 /* Gems Page */
@@ -226,5 +250,22 @@ hr {
   .search-icon {
     font-size: 16px;
     right: 5%;
+  }
+}
+
+@media (min-width: 1023px) {
+  .main-form-container {
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+  }
+
+  .main-input {
+    height: 75px;
+    border-radius: 50px;
+    width: 1000px;
+    margin-bottom: 25px;
+    padding: 25px;
+    font-size: 20px;
   }
 }
