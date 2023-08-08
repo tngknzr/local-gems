@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
-
+const fileUploader = require('../config/cloudinary.config');
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 const Gem = require('../models/Gem.model');
 
@@ -77,6 +77,51 @@ router.post('/login', (req, res, next) => {
     })
     .catch((error) => next(error));
 });
+
+
+// added createdBy object for rendering gem on userProfile
+router.get('/userProfile', (req, res) => {
+  const currentUser = req.session.currentUser;
+
+  User.findById(currentUser._id)
+  .then((user)=>{
+
+    Gem.find({ createdBy: currentUser._id })
+    .populate('createdBy')
+    .then((gems) => {
+      res.render('user/user-profile', { userInSession: user, gems });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  })
+  
+    .catch((err) => {
+      console.log(err);
+    });
+});
+router.get('/createProfile', (req, res) => res.render('user/user-profile'));
+
+router.post('/userProfile', fileUploader.single('profileUrl'), (req, res) => {
+
+  const { username, email, description } = req.body;
+  let file = req.file ? req.file.path : undefined;
+
+  User.findByIdAndUpdate(
+    req.session.currentUser._id,
+    { username, email, description, imgProfile: file },
+     {new:true}
+     )
+    .then(newlyCreatedProfileFromDB => {
+      req.session.currentUser = newlyCreatedProfileFromDB;
+      res.redirect('/userProfile')
+
+    })
+    .catch(error => console.log(`Error while creating a new user profile: ${error}`));
+});
+
+
+
 router.post('/logout', (req, res, next) => {
   req.session
     .destroy((err) => {
@@ -88,19 +133,6 @@ router.post('/logout', (req, res, next) => {
     });
 });
 
-// added createdBy object for rendering gem on userProfile
-router.get('/userProfile', (req, res) => {
-  const currentUser = req.session.currentUser;
-  Gem.find({ createdBy: currentUser._id })
-    .populate('createdBy')
-    .then((gems) => {
-      res.render('user/user-profile', { userInSession: currentUser, gems });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 module.exports = router;
 
-//
+
