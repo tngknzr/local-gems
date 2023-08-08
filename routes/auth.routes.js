@@ -140,4 +140,15 @@ router.get('/userProfile', (req, res) => {
   });
 });
 
+router.post('/logout', (req, res, next) => {
+  req.session
+    .destroy((err) => {
+      if (err) next(err);
+      res.redirect('/');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
