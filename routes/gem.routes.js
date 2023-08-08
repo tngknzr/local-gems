@@ -42,8 +42,6 @@ router.get('/main', (req, res) => {
 // the main search queries for gem and location
 router.get('/search', (req, res) => {
   const { localGem, location } = req.query;
-  console.log('localGem', localGem);
-  console.log('location', location);
   Gem.find({ gemName: { $regex: localGem }, location: location })
     .then((gems) => {
       console.log(gems);
@@ -58,6 +56,19 @@ router.get('/search', (req, res) => {
     });
 });
 
-// Delete Gem Route
+router.get('/userInSession', (req, res) => {
+  let userInSession;
+  if (req.session.currentUser) {
+    userInSession = {
+      _id: req.session.currentUser._id,
+      username: req.session.currentUser.username,
+    };
+  } else {
+    userInSession = false;
+  }
+
+  console.log(userInSession);
+  res.json({ userInSession: userInSession });
+});
 
 module.exports = router;
