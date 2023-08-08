@@ -18,6 +18,11 @@ const gemSchema = new Schema(
       type: String,
       required: true,
     },
+    venueName: {
+      type: String,
+      required: true,
+    },
+
     imgUrl: {
       type: String,
       required: true,

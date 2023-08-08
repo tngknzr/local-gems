@@ -1,6 +1,7 @@
-const { isLoggedIn } = require('../middleware/route-guard');
-const Gem = require('../models/Gem.model');
 const router = require('express').Router();
+const Gem = require('../models/Gem.model');
+const { isLoggedIn } = require('../middleware/route-guard');
+const fileUploader = require('../config/cloudinary.config');
 
 router.get('/create', (req, res) => {
   res.render('create-gem', { userInSession: req.session.currentUser });
@@ -13,10 +14,12 @@ router.get('/', isLoggedIn, (req, res) => {
 });
 
 // added createdBy variable for rendering on userProfile functionality
-router.post('/create', (req, res) => {
-  const { gemName, description, location, imgUrl, category } = req.body;
+router.post('/create', fileUploader.single('imgUrl'), (req, res) => {
+  console.log(req.file);
+  const { gemName, description, location, venueName, category } = req.body;
   const createdBy = req.session.currentUser._id;
-  Gem.create({ gemName, description, location, imgUrl, category, createdBy })
+  let imgUrl = req.file ? req.file.path : undefined;
+  Gem.create({ gemName, description, location, venueName, imgUrl, category, createdBy })
     .then(() => {
       res.redirect('/main');
     })
@@ -28,6 +31,7 @@ router.post('/create', (req, res) => {
 router.get('/main', (req, res) => {
   Gem.find()
     .then((gems) => {
+      console.log(gems);
       res.render('main', { gems, userInSession: req.session.currentUser });
     })
     .catch((err) => {
@@ -51,4 +55,20 @@ router.get('/search', (req, res) => {
       console.log(err);
     });
 });
+
+router.get('/userInSession', (req, res) => {
+  let userInSession;
+  if (req.session.currentUser) {
+    userInSession = {
+      _id: req.session.currentUser._id,
+      username: req.session.currentUser.username,
+    };
+  } else {
+    userInSession = false;
+  }
+
+  console.log(userInSession);
+  res.json({ userInSession: userInSession });
+});
+
 module.exports = router;
