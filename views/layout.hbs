@@ -5,6 +5,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta http-equiv='X-UA-Compatible' content='ie=edge' />
     <title>{{appTitle}}</title>
+    <script src='https://kit.fontawesome.com/c7b23fc763.js' crossorigin='anonymous'></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link
       href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css'
@@ -16,16 +17,18 @@
   <body>
 
     <nav>
+      <a href='/'> <img class='logo' src='https://i.postimg.cc/zXh5tg3s/Local-Gems-removebg-preview.png' alt='logo' /></a>
+      <ul class='nav-ul'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/main'>Local Gems</a></li>
 
-      <ul>
-        <li><a href='/main'>Home</a></li>
-        <li><a href='/'>About</a></li>
         {{#if userInSession}}
 
           <li><a href='/userProfile'> Profile</a></li>
+          <li><a href='/create'>Create</a></li>
           <li>
             <form action='/logout' method='POST'>
-              <button>Logout</button>
+              <button class='logout-btn'>Logout</button>
             </form></li>
 
         {{/if}}
@@ -33,10 +36,10 @@
           <li> <a href='/signup'>Signup</a></li>
           <li><a href='/login'>Login</a></li>
         {{/unless}}
-
+        <i class='fa-solid fa-bars mobile-menu'></i>
       </ul>
-
     </nav>
+    <hr />
 
     {{{body}}}
 
