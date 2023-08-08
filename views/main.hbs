@@ -48,5 +48,27 @@
       </div>
     {{/each}}
   </div>
-  <div class='pop-up'><h4>This will pop up when heart is clicked</h4></div>
+
+  <div class='pop-up' id='pop-up'><h4 class='pop-up-heading'>Log in or sign up</h4>
+    <br />
+    <i class='fa-solid fa-x pop-up-close' id='pop-up-close'></i>
+    <div>
+      <form class='pop-up-form' id='pop-up-form' action='/login' method='POST'>
+        <div class='pop-up-label-container'>
+          <label for='email' class='pop-up-label'>Email</label>
+          <input id='email' type='email' name='email' placeholder='rockstar@localgems.com' />
+        </div>
+        <div class='pop-up-label-container'>
+          <label for='password' class='pop-up-label'>Password</label>
+          <input id='password' type='password' name='password' placeholder='********' />
+        </div>
+        <button type='submit'>Continue</button>
+        {{#if errorMessage}}
+          <p class='error'>{{errorMessage}}</p>
+        {{/if}}
+      </form>
+    </div>
+
+  </div>
+
 </div>

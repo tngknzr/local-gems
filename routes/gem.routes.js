@@ -31,6 +31,7 @@ router.post('/create', fileUploader.single('imgUrl'), (req, res) => {
 router.get('/main', (req, res) => {
   Gem.find()
     .then((gems) => {
+      console.log(gems);
       res.render('main', { gems, userInSession: req.session.currentUser });
     })
     .catch((err) => {

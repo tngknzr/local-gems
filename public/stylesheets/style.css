@@ -163,11 +163,44 @@ hr {
   background-color: yellow;
   width: 500px;
   height: 500px;
-  object-fit: cover;
   position: absolute;
-  top: 0;
-  left: auto;
-  right: auto;
+  top: -2900;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 5px;
+  display: none;
+}
+
+.pop-up-close {
+  position: absolute;
+  /* top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; */
+  top: 10px;
+  right: 10px;
+  font-size: 50px;
+  display: none;
+}
+
+.pop-up-heading {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.pop-up-form {
+  text-align: center;
+}
+
+.pop-up-label-container {
+  margin-bottom: 25px;
+}
+
+.pop-up-label {
+  display: block;
 }
 
 /* Gems Page */
