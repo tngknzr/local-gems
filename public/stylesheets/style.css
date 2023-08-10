@@ -302,3 +302,41 @@ hr {
     font-size: 20px;
   }
 }
+#nav-bar {
+  background-color: FF385C;
+  color: aliceblue;
+}
+.click-nav{
+  color: aliceblue;
+}
+.logo{
+  background-color: #f1728a;
+  border-radius: 50%;
+  
+}
+.logout-btn{
+  backface-visibility: hidden;
+  white-space: nowrap;
+  border-color: #7c7c7c;
+  background: linear-gradient(145deg,#e6e6e6 0%,rgba(0, 0, 0, 0.25) 49%, rgba(38, 38, 38, 0.6) 51%,rgba(0, 0, 0, 0.25) 100%);
+  padding: 4px;
+  border-radius: 10%;
+}
+.title {
+   
+}
+
+#home-local {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#home-local > p {
+  width: 50vw;
+}
+
+#serpent {
+  margin-top: 10%;
+  margin-bottom: 5%;
+}

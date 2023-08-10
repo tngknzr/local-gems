@@ -55,6 +55,18 @@ router.get('/search', (req, res) => {
       console.log(err);
     });
 });
+router.post('/gems/:id/delete',  (req, res, next) => {
+  const gemId = req.params.id;
+
+  Gem.findByIdAndDelete(gemId)
+    .then(() => {
+      res.redirect('/userProfile'); 
+    })
+    .catch((error) => {
+      console.error(`Error deleting gem: ${error}`);
+      next(error);
+    });
+});
 
 router.get('/userInSession', (req, res) => {
   let userInSession;

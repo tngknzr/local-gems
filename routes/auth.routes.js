@@ -112,6 +112,7 @@ router.post('/userProfile', fileUploader.single('profileUrl'), (req, res) => {
     .catch((error) => console.log(`Error while creating a new user profile: ${error}`));
 });
 
+
 router.post('/logout', (req, res, next) => {
   req.session
     .destroy((err) => {
