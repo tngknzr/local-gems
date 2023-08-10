@@ -5,6 +5,15 @@
 
 /* Layout Page */
 
+body {
+  /* border: 25px solid #ff385c;
+  border-top: none; */
+}
+
+#body.active {
+  overflow: hidden;
+}
+
 .logo {
   width: 100px;
   height: auto;
@@ -13,6 +22,7 @@
 nav {
   display: flex;
   justify-content: space-between;
+  background: #ff385c;
 }
 
 .nav-ul {
@@ -26,6 +36,7 @@ nav {
 
 .nav-ul a {
   text-decoration: none;
+  color: white;
 }
 
 hr {
@@ -88,6 +99,7 @@ hr {
   font-size: 26px;
   border-radius: 50px;
   color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .main-img-container {
@@ -159,27 +171,29 @@ hr {
   cursor: pointer;
 }
 
+.heart-icon.active {
+  fill: #ff385c;
+}
+
 .pop-up {
   background-color: yellow;
   width: 500px;
   height: 500px;
   position: absolute;
-  top: -2900;
+  top: -3000;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
   border-radius: 5px;
   display: none;
+  z-index: 1000;
+  border-radius: 5px;
+  transition: all 0.75s;
 }
 
 .pop-up-close {
   position: absolute;
-  /* top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto; */
   top: 10px;
   right: 10px;
   font-size: 50px;
@@ -199,7 +213,7 @@ hr {
   margin-bottom: 25px;
 }
 
-.pop-up-label {
+.label {
   display: block;
 }
 
@@ -235,9 +249,27 @@ hr {
 /* Create Gems Page */
 
 .create-form-container {
-  margin: 150px auto;
+  margin: 75px auto;
   display: flex;
   justify-content: center;
+  border: 10px solid #ff385c;
+  padding: 25px;
+  width: 500px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.create-form {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.create-input {
+  margin-bottom: 25px;
+}
+
+.create-img-input {
+  width: 249px;
+  font-size: 20px;
 }
 
 @media (max-width: 600px) {
