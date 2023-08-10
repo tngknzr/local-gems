@@ -13,19 +13,20 @@
       integrity='sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9'
       crossorigin='anonymous'
     />
+    
   </head>
   <body>
 
-    <nav>
+    <nav id="nav-bar">
       <a href='/'> <img class='logo' src='https://i.postimg.cc/zXh5tg3s/Local-Gems-removebg-preview.png' alt='logo' /></a>
       <ul class='nav-ul'>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/main'>Local Gems</a></li>
+        <li><a class="click-nav" href='/'>Home</a></li>
+        <li><a class="click-nav" href='/main'>Local Gems</a></li>
 
         {{#if userInSession}}
 
-          <li><a href='/userProfile'> Profile</a></li>
-          <li><a href='/create'>Create</a></li>
+          <li><a class="click-nav" href='/userProfile'> Profile</a></li>
+          <li><a class="click-nav" href='/create'>Create</a></li>
           <li>
             <form action='/logout' method='POST'>
               <button class='logout-btn'>Logout</button>
@@ -33,8 +34,8 @@
 
         {{/if}}
         {{#unless userInSession}}
-          <li> <a href='/signup'>Signup</a></li>
-          <li><a href='/login'>Login</a></li>
+          <li> <a class="click-nav" href='/signup'>Signup</a></li>
+          <li><a class="click-nav" href='/login'>Login</a></li>
         {{/unless}}
         <i class='fa-solid fa-bars mobile-menu'></i>
       </ul>
