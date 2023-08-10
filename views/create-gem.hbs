@@ -1,49 +1,34 @@
-<h1>Create Local Gem</h1>
+<h1 class='text-center mt-5'>Create Local Gem</h1>
 <div class='create-form-container'>
-  <form action='/create' method='POST' enctype='multipart/form-data'>
+  <form class='create-form' action='/create' method='POST' enctype='multipart/form-data'>
     <div>
-      <label for='gemName'>
-        Gem:
-        <input type='text' name='gemName' />
-      </label>
+      <label class='label' for='gemName'> Gem: </label>
+      <input class='create-input' id='gemName' type='text' name='gemName' />
     </div>
     <div>
-      <label for='description'>
-        Description:
-        <input type='text' name='description' />
-      </label>
+      <label class='label' for='description'> Description:</label>
+      <input class='create-input' id='description' type='text' name='description' />
     </div>
     <div>
-      <label for='location'>
-        Location:
-        <input type='text' name='location' />
-      </label>
+      <label class='label' for='location'>Location: </label>
+      <input class='create-input' id='location' type='text' name='location' />
     </div>
     <div>
-      <label for='venueName'>
-        Venue Name:
-        <input type='text' name='venueName' />
-      </label>
+      <label class='label' for='venueName'>Venue Name: </label>
+      <input class='create-input' id='venueName' type='text' name='venueName' />
     </div>
     <div>
-      <label for='imgUrl'>
-        Img:
-        <input type='file' name='imgUrl' />
-      </label>
+      <label class='label' for='imgUrl'>Img:</label>
+      <input class='create-img-input create-input' id='imgUrl' type='file' name='imgUrl' />
     </div>
     <div>
-      <label for='category'>
-        Category:
-        <input type='text' name='category' />
-      </label>
+      <label class='label' for='category'>Category: </label>
+      <input class='create-input' id='category' type='text' name='category' />
     </div>
     <div>
-      <label for='category'>
-        Created By:
-        <input type='text' name='createdBy' />
-      </label>
+      <label class='label' for='createdBy'>Created By:</label>
+      <input class='create-input' id='createdBy' type='text' name='createdBy' />
     </div>
-
     <button type='submit'>Submit</button>
   </form>
 </div>
