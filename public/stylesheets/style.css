@@ -267,6 +267,18 @@ hr {
   font-size: 20px;
 }
 
+.create-btn-container {
+  text-align: center;
+}
+
+.create-btn {
+  color: white;
+  background: #ff385c;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+}
+
 @media (max-width: 600px) {
   .main-form-container {
     flex-direction: column;
