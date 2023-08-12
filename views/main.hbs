@@ -37,11 +37,13 @@
 
     <div class='gem-container'>
       {{#each gems}}
-        <div>
+        <div class='gem-info-container'>
           <img class='gem-img img-fluid' src='{{imgUrl}}' alt='local gem' />
           <div class='heart-icon-container'>
-            <img class='heart-icon' id='heart-icon' src='/images/heart-svgrepo-com.svg' alt='' />
+            {{! <img class='heart-icon' id='heart-icon' src='/images/heart-svgrepo-com.svg' alt='' /> }}
+            <i class='fa-regular fa-heart heart-icon' id='heart-icon'></i>
           </div>
+
           <div class='gem-info-container'>
             <h3 class=''>{{venueName}}</h3>
             <h3 class='gem-description'>"{{description}}"</h3>
@@ -50,7 +52,8 @@
       {{/each}}
     </div>
 
-    <div class='pop-up' id='pop-up'><h4 class='pop-up-heading'>Log in or sign up</h4>
+    <div class='pop-up' id='pop-up'>
+      <h4 class='pop-up-heading'>Log in or sign up</h4>
       <br />
       <i class='fa-solid fa-x pop-up-close' id='pop-up-close'></i>
       <div>

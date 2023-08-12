@@ -25,6 +25,7 @@ fetch('/userInSession')
     function clickHeart(event) {
       if (userInSession) {
         event.target.classList.toggle('active');
+        console.log('works');
         return;
       }
       popUp.style.display = 'block';

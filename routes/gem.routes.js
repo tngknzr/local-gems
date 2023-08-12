@@ -2,13 +2,14 @@ const router = require('express').Router();
 const Gem = require('../models/Gem.model');
 const { isLoggedIn } = require('../middleware/route-guard');
 const fileUploader = require('../config/cloudinary.config');
+const User = require('../models/User.model');
 
 router.get('/create', (req, res) => {
   res.render('create-gem', { userInSession: req.session.currentUser });
 });
 
 router.get('/', isLoggedIn, (req, res) => {
-  if (req.session.currentuser) {
+  if (req.session.currentUser) {
     res.render('create-gem');
   }
 });
@@ -31,7 +32,6 @@ router.post('/create', fileUploader.single('imgUrl'), (req, res) => {
 router.get('/main', (req, res) => {
   Gem.find()
     .then((gems) => {
-      console.log(gems);
       res.render('main', { gems, userInSession: req.session.currentUser });
     })
     .catch((err) => {
@@ -44,7 +44,6 @@ router.get('/search', (req, res) => {
   const { localGem, location } = req.query;
   Gem.find({ gemName: { $regex: localGem }, location: location })
     .then((gems) => {
-      console.log(gems);
       if (gems.length === 0) {
         res.render('main', { errorMsg: 'Sorry no local gem within that category try another search' });
       } else {
@@ -55,12 +54,12 @@ router.get('/search', (req, res) => {
       console.log(err);
     });
 });
-router.post('/gems/:id/delete',  (req, res, next) => {
+router.post('/gems/:id/delete', (req, res, next) => {
   const gemId = req.params.id;
 
   Gem.findByIdAndDelete(gemId)
     .then(() => {
-      res.redirect('/userProfile'); 
+      res.redirect('/userProfile');
     })
     .catch((error) => {
       console.error(`Error deleting gem: ${error}`);
@@ -78,8 +77,6 @@ router.get('/userInSession', (req, res) => {
   } else {
     userInSession = false;
   }
-
-  console.log(userInSession);
   res.json({ userInSession: userInSession });
 });
 
