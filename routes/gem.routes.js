@@ -8,7 +8,7 @@ router.get('/create', (req, res) => {
 });
 
 router.get('/', isLoggedIn, (req, res) => {
-  if (req.session.currentuser) {
+  if (req.session.currentUser) {
     res.render('create-gem');
   }
 });
@@ -55,12 +55,12 @@ router.get('/search', (req, res) => {
       console.log(err);
     });
 });
-router.post('/gems/:id/delete',  (req, res, next) => {
+router.post('/gems/:id/delete', (req, res, next) => {
   const gemId = req.params.id;
 
   Gem.findByIdAndDelete(gemId)
     .then(() => {
-      res.redirect('/userProfile'); 
+      res.redirect('/userProfile');
     })
     .catch((error) => {
       console.error(`Error deleting gem: ${error}`);
