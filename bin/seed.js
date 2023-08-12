@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Gem = require('../models/Gem.model');
 
-const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://biljana2023:MLVqPgjdddp1egqV@cluster0.p9rwig2.mongodb.net/local-gems';
+const MONGO_URI = process.env.MONGODB_URI
 
 // const MONGO_URI = process.env.MONGODB_URI;
 
