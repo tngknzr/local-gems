@@ -1,0 +1,23 @@
+
+
+<div id="login-form">
+  <h2 class="merri">Login</h2>
+
+  <form action="/login" method="POST">
+
+    <label class="mont"> Email
+      <input type="email" name="email" placeholder="rockstar@localgems.com" />
+    </label>
+
+    <label class="mont">Password
+      <input type="password" name="password" placeholder="********" />
+    </label>
+
+    <button class="mont" type="submit">Login</button>
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
+

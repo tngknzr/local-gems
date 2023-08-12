@@ -1,0 +1,26 @@
+<div id="singup-form">
+
+  <h2 class="merri">Signup</h2>
+
+  <form action="/signup" method="POST">
+
+    <label class="mont"> Username
+      <input type="text" name="username" placeholder="ironhacker" />
+    </label>
+
+    <label class="mont"> Email
+      <input type="email" name="email" placeholder="rockstar@ironhack.com" />
+    </label>
+
+    <label class="mont"> Password
+      <input type="password" name="password" placeholder="********" />
+    </label>
+
+    <button class="mont" type="submit">Create account</button>
+    {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+  {{/if}}
+
+  </form>
+</div>
+
