@@ -1,74 +1,76 @@
-<div class='main-form-container'>
-  <form class='main-form' id='main-form' action='/search' method='GET'>
+<main>
+  <div class='main-form-container'>
+    <form class='main-form' id='main-form' action='/search' method='GET'>
 
-    <div class='search-input-container'>
-      <input class='main-input' id='search-input' type='text' name='localGem' placeholder='Search for local gem' required='true' />
-      <i class='fa-solid fa-magnifying-glass fa-2x search-icon'></i>
+      <div class='search-input-container'>
+        <input class='main-input' id='search-input' type='text' name='localGem' placeholder='Search for local gem' required='true' />
+        <i class='fa-solid fa-magnifying-glass fa-2x search-icon'></i>
 
-    </div>
-    <div class='select-container'>
-      <select class='main-input select-input' name='location' id='location-select' required='true'>
-        <option value=''>--Choose a location--</option>
-        <option value='Ohrid'>Ohrid</option>
-        <option value='Madrid'>Spain</option>
-        <option value='Paris'>Paris</option>
-        <option value='London'>London</option>
-        <option value='London'>Istanbul</option>
-      </select>
-      <div class='main-submit-btn-container'> <button class='main-submit-btn' id='location-btn' type='submit'>Submit</button></div>
-
-    </div>
-
-  </form>
-
-</div>
-
-{{#if errorMsg}}
-  <span class='error'>
-    {{errorMsg}}
-  </span>
-{{/if}}
-
-<div class='main-heading-container'>
-  <h1 class='text-center'>Local Gems</h1>
-  <div class='gem-container'>
-
-    {{#each gems}}
-      <div>
-
-        <img class='gem-img img-fluid' src='{{imgUrl}}' alt='local gem' />
-        <div class='heart-icon-container'>
-          <img class='heart-icon' id='heart-icon' src='../images/heart-svgrepo-com.svg' alt='' />
-        </div>
-        <div class='gem-info-container'>
-          <h3 class=''>{{venueName}}</h3>
-          <h3 class='gem-description'>"{{description}}"</h3>
+      </div>
+      <div class='select-container'>
+        <select class='main-input select-input' name='location' id='location-select' required='true'>
+          <option value=''>--Choose a location--</option>
+          <option value='Ohrid'>Ohrid</option>
+          <option value='Madrid'>Spain</option>
+          <option value='Paris'>Paris</option>
+          <option value='London'>London</option>
+          <option value='London'>Istanbul</option>
+        </select>
+        <div class='main-submit-btn-container'>
+          <button class='main-submit-btn' id='location-btn' type='submit'>Submit</button>
         </div>
 
       </div>
-    {{/each}}
+
+    </form>
+
   </div>
 
-  <div class='pop-up' id='pop-up'><h4 class='pop-up-heading'>Log in or sign up</h4>
-    <br />
-    <i class='fa-solid fa-x pop-up-close' id='pop-up-close'></i>
-    <div>
-      <form class='pop-up-form' id='pop-up-form' action='/login' method='POST'>
-        <div class='pop-up-label-container'>
-          <label for='email' class='pop-up-label'>Email</label>
-          <input id='email' type='email' name='email' placeholder='rockstar@localgems.com' />
+  {{#if errorMsg}}
+    <span class='error'>
+      {{errorMsg}}
+    </span>
+  {{/if}}
+
+  <div class='main-heading-container'>
+    <h1 class='text-center main-heading'>Local Gems</h1>
+
+    <div class='gem-container'>
+      {{#each gems}}
+        <div>
+          <img class='gem-img img-fluid' src='{{imgUrl}}' alt='local gem' />
+          <div class='heart-icon-container'>
+            <img class='heart-icon' id='heart-icon' src='/images/heart-svgrepo-com.svg' alt='' />
+          </div>
+          <div class='gem-info-container'>
+            <h3 class=''>{{venueName}}</h3>
+            <h3 class='gem-description'>"{{description}}"</h3>
+          </div>
         </div>
-        <div class='pop-up-label-container'>
-          <label for='password' class='pop-up-label'>Password</label>
-          <input id='password' type='password' name='password' placeholder='********' />
-        </div>
-        <button type='submit'>Continue</button>
-        {{#if errorMessage}}
-          <p class='error'>{{errorMessage}}</p>
-        {{/if}}
-      </form>
+      {{/each}}
+    </div>
+
+    <div class='pop-up' id='pop-up'><h4 class='pop-up-heading'>Log in or sign up</h4>
+      <br />
+      <i class='fa-solid fa-x pop-up-close' id='pop-up-close'></i>
+      <div>
+        <form class='pop-up-form' id='pop-up-form' action='/login' method='POST'>
+          <div class='pop-up-label-container'>
+            <label for='email' class='label'>Email</label>
+            <input id='email' type='email' name='email' placeholder='rockstar@localgems.com' />
+          </div>
+          <div class='pop-up-label-container'>
+            <label for='password' class='label'>Password</label>
+            <input id='password' type='password' name='password' placeholder='********' />
+          </div>
+          <button type='submit'>Continue</button>
+          {{#if errorMessage}}
+            <p class='error'>{{errorMessage}}</p>
+          {{/if}}
+        </form>
+      </div>
+
     </div>
 
   </div>
-
-</div>
+</main>

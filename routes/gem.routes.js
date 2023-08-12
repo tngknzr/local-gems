@@ -8,7 +8,7 @@ router.get('/create', (req, res) => {
 });
 
 router.get('/', isLoggedIn, (req, res) => {
-  if (req.session.currentuser) {
+  if (req.session.currentUser) {
     res.render('create-gem');
   }
 });
@@ -17,6 +17,7 @@ router.get('/', isLoggedIn, (req, res) => {
 router.post('/create', fileUploader.single('imgUrl'), (req, res) => {
   console.log(req.file);
   const { gemName, description, location, venueName, category } = req.body;
+  console.log('req.session:', req.session);
   const createdBy = req.session.currentUser._id;
   let imgUrl = req.file ? req.file.path : undefined;
   Gem.create({ gemName, description, location, venueName, imgUrl, category, createdBy })
@@ -55,12 +56,12 @@ router.get('/search', (req, res) => {
       console.log(err);
     });
 });
-router.post('/gems/:id/delete',  (req, res, next) => {
+router.post('/gems/:id/delete', (req, res, next) => {
   const gemId = req.params.id;
 
   Gem.findByIdAndDelete(gemId)
     .then(() => {
-      res.redirect('/userProfile'); 
+      res.redirect('/userProfile');
     })
     .catch((error) => {
       console.error(`Error deleting gem: ${error}`);

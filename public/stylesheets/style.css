@@ -1,10 +1,13 @@
-
 * {
   margin: 0;
   padding: 0;
 }
 
 /* Layout Page */
+
+#body.active {
+  overflow: hidden;
+}
 
 .logo {
   width: 100px;
@@ -14,6 +17,7 @@
 nav {
   display: flex;
   justify-content: space-between;
+  background: #ff385c;
 }
 
 .nav-ul {
@@ -27,6 +31,7 @@ nav {
 
 .nav-ul a {
   text-decoration: none;
+  color: white;
 }
 
 hr {
@@ -89,6 +94,7 @@ hr {
   font-size: 26px;
   border-radius: 50px;
   color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .main-img-container {
@@ -101,6 +107,10 @@ hr {
 .main-heading-container {
   margin-top: 75px;
   position: relative;
+}
+
+.main-heading {
+  font-family: 'Merriweather', serif;
 }
 
 .gem-container {
@@ -160,27 +170,29 @@ hr {
   cursor: pointer;
 }
 
+.heart-icon.active {
+  fill: #ff385c;
+}
+
 .pop-up {
   background-color: yellow;
   width: 500px;
   height: 500px;
   position: absolute;
-  top: -2900;
+  top: -3000;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
   border-radius: 5px;
   display: none;
+  z-index: 1000;
+  border-radius: 5px;
+  transition: all 0.75s;
 }
 
 .pop-up-close {
   position: absolute;
-  /* top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto; */
   top: 10px;
   right: 10px;
   font-size: 50px;
@@ -200,7 +212,7 @@ hr {
   margin-bottom: 25px;
 }
 
-.pop-up-label {
+.label {
   display: block;
 }
 
@@ -236,9 +248,39 @@ hr {
 /* Create Gems Page */
 
 .create-form-container {
-  margin: 150px auto;
+  margin: 75px auto;
   display: flex;
   justify-content: center;
+  border: 10px solid #ff385c;
+  padding: 25px;
+  width: 500px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.create-form {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.create-input {
+  margin-bottom: 25px;
+}
+
+.create-img-input {
+  width: 249px;
+  font-size: 20px;
+}
+
+.create-btn-container {
+  text-align: center;
+}
+
+.create-btn {
+  color: white;
+  background: #ff385c;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
 }
 
 @media (max-width: 600px) {
@@ -307,7 +349,7 @@ hr {
   background-color: FF385C;
   color: aliceblue;
 }
-.click-nav{
+.click-nav {
   color: aliceblue;
 }
 .logo{
@@ -315,24 +357,21 @@ hr {
   border-radius: 50%;
   
 }
-.submit-btn{
+.logout-btn{
   backface-visibility: hidden;
   white-space: nowrap;
   border-color: #7c7c7c;
-  background: linear-gradient(145deg,#e6e6e6 0%,rgba(0, 0, 0, 0.25) 49%, rgba(38, 38, 38, 0.6) 51%,rgba(0, 0, 0, 0.25) 100%);
+  background: linear-gradient(145deg, #e6e6e6 0%, rgba(0, 0, 0, 0.25) 49%, rgba(38, 38, 38, 0.6) 51%, rgba(0, 0, 0, 0.25) 100%);
   padding: 4px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   color: #020202;
   font-weight: 700;
 }
-/* indexbelow */
-#p{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.title {
+   
 }
+
 #home-local {
   display: flex;
   flex-direction: column;
