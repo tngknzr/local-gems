@@ -1,43 +1,44 @@
-<h1>welcome to LocalGems</h1>
+<div id="profile-page">
 
 {{#if userInSession}}
 
-  <h2>Welcome, {{userInSession.username}}!</h2>
+  <h2 class="merri">Welcome, {{userInSession.username}}!</h2>
 
   <form action='/userProfile' method='post' enctype='multipart/form-data'>
 
-    <label for='imgUrl'>
-      Upload Profile Pic
+    <label class="mont" for='imgUrl'>
+      Upload Profile Picture
 
     </label>
     <img src='{{userInSession.imgProfile}}' alt='' />
     <input id='imgUrl' type='file' name='profileUrl' />
-    <h3>About me</h3>
+    <h3 class="merri">About me</h3>
 
-    <div style='border: 10px solid black;'>
+    <div class="mont" id="place-holder">
       {{! heere goes the texttareadescription }}
       {{userInSession.description}}
     </div>
 
-    <textarea name='description' id='' cols='30' rows='10'>{{userInSession.description}}</textarea>
+    <textarea class="mont" name='description' id='' cols='30' rows='10'>{{userInSession.description}}</textarea>
 
-    <button>confirm NEW details</button>
+    <button class='submit-btn mont' >Confirm details</button>
   </form>
 
-  <div>
-    <h3>Your uploaded gems:</h3>
+  <div id="up-gems">
+    <h3 class="merri" id="">Your uploaded gems:</h3>
     {{#each gems}}
 
       <img class='profile-gem-img' src='{{imgUrl}}' alt='local gem' />
 
-      <h3 class='gem-description'>"{{description}}"</h3>
+      <h3 class='gem-description merri'>"{{description}}"</h3>
       <form action='/gems/{{this._id}}/delete' method='POST'>
-        <button>Delete Gem</button>
+        <button class='submit-btn mont' >Delete Gem</button>
       </form>
 
     {{/each}}
   </div>
 
 {{else}}
-  <p>Still no logged in user, sorry!</p>
+  <p class="mont">Still no logged in user, sorry!</p>
 {{/if}}
+</div>
