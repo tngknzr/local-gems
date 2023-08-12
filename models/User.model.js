@@ -18,7 +18,16 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
+<<<<<<< HEAD
       required: true
+=======
+      required: [true, 'Password is required']
+    },
+    imgProfile:String,
+    
+    description:{
+      type:String,
+>>>>>>> dev
     }
   },
   {

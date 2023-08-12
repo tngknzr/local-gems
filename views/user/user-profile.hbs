@@ -1,0 +1,43 @@
+<h1>welcome to LocalGems</h1>
+
+{{#if userInSession}}
+
+  <h2>Welcome, {{userInSession.username}}!</h2>
+
+  <form action='/userProfile' method='post' enctype='multipart/form-data'>
+
+    <label for='imgUrl'>
+      Upload Profile Pic
+
+    </label>
+    <img src='{{userInSession.imgProfile}}' alt='' />
+    <input id='imgUrl' type='file' name='profileUrl' />
+    <h3>About me</h3>
+
+    <div style='border: 10px solid black;'>
+      {{! heere goes the texttareadescription }}
+      {{userInSession.description}}
+    </div>
+
+    <textarea name='description' id='' cols='30' rows='10'>{{userInSession.description}}</textarea>
+
+    <button>confirm NEW details</button>
+  </form>
+
+  <div>
+    <h3>Your uploaded gems:</h3>
+    {{#each gems}}
+
+      <img class='profile-gem-img' src='{{imgUrl}}' alt='local gem' />
+
+      <h3 class='gem-description'>"{{description}}"</h3>
+      <form action='/gems/{{this._id}}/delete' method='POST'>
+        <button>Delete Gem</button>
+      </form>
+
+    {{/each}}
+  </div>
+
+{{else}}
+  <p>Still no logged in user, sorry!</p>
+{{/if}}

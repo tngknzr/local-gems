@@ -1,0 +1,36 @@
+<h1 class='text-center mt-5'>Create Local Gem</h1>
+<div class='create-form-container'>
+  <form class='create-form' action='/create' method='POST' enctype='multipart/form-data'>
+    <div>
+      <label class='label' for='gemName'> Gem: </label>
+      <input class='create-input' id='gemName' type='text' name='gemName' required='true' />
+    </div>
+    <div>
+      <label class='label' for='description'> Description:</label>
+      <input class='create-input' id='description' type='text' name='description' required='true' />
+    </div>
+    <div>
+      <label class='label' for='location'>Location: </label>
+      <input class='create-input' id='location' type='text' name='location' required='true' />
+    </div>
+    <div>
+      <label class='label' for='venueName'>Venue Name: </label>
+      <input class='create-input' id='venueName' type='text' name='venueName' required='true' />
+    </div>
+    <div>
+      <label class='label' for='imgUrl'>Img:</label>
+      <input class='create-img-input create-input' id='imgUrl' type='file' name='imgUrl' required='true' />
+    </div>
+    <div>
+      <label class='label' for='category'>Category: </label>
+      <input class='create-input' id='category' type='text' name='category' required='true' />
+    </div>
+    <div>
+      <label class='label' for='createdBy'>Created By:</label>
+      <input class='create-input' id='createdBy' type='text' name='createdBy' required='true' />
+    </div>
+    <div class='create-btn-container'>
+      <button class='create-btn' type='submit'>Submit</button>
+    </div>
+  </form>
+</div>
