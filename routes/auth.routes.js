@@ -113,16 +113,6 @@ router.post('/userProfile', fileUploader.single('profileUrl'), (req, res) => {
 });
 
 
-router.post('/logout', (req, res, next) => {
-  req.session
-    .destroy((err) => {
-      if (err) next(err);
-      res.redirect('/');
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
 
 // added createdBy object for rendering gem on userProfile
 router.get('/userProfile', (req, res) => {
@@ -175,16 +165,22 @@ router.get('/userProfile', (req, res) => {
     res.render('user/user-profile', { userProfilePic: userProfilePic });
   });
 });
+router.post("/logout",(req,res)=>{
+  console.log('hi')
+  req.session.destroy()
 
-router.post('/logout', (req, res, next) => {
-  req.session
-    .destroy((err) => {
-      if (err) next(err);
-      res.redirect('/');
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+  req.app.locals.signedInUser=null
+  res.redirect('/')
+})
+//  router.post('/logout', (req, res, next) => {
+//   req.session
+//     .destroy((err) => {
+//       if (err) next(err);
+//       res.redirect('/');
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 module.exports = router;
