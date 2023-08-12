@@ -112,6 +112,10 @@ hr {
   position: relative;
 }
 
+.main-heading {
+  font-family: 'Merriweather', serif;
+}
+
 .gem-container {
   margin-top: 50px;
   display: grid;
