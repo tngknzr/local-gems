@@ -112,6 +112,7 @@ router.post('/userProfile', fileUploader.single('profileUrl'), (req, res) => {
     .catch((error) => console.log(`Error while creating a new user profile: ${error}`));
 });
 
+
 // added createdBy object for rendering gem on userProfile
 router.get('/userProfile', (req, res) => {
   const currentUser = req.session.currentUser;
@@ -163,6 +164,7 @@ router.get('/userProfile', (req, res) => {
     res.render('user/user-profile', { userProfilePic: userProfilePic });
   });
 });
+
 router.post('/logout', (req, res) => {
   console.log('hi');
   req.session.destroy();
@@ -170,5 +172,7 @@ router.post('/logout', (req, res) => {
   req.app.locals.signedInUser = null;
   res.redirect('/');
 });
+
+
 
 module.exports = router;

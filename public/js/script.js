@@ -29,6 +29,7 @@ fetch('/userInSession')
         console.log('works');
         return;
       }
+      console.log('click heart works');
       popUp.style.display = 'block';
       popUpClose.style.display = 'block';
       body.classList.toggle('active');

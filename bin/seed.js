@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const Gem = require('../models/Gem.model');
 
-const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/local';
+const MONGO_URI = process.env.MONGODB_URI
+
+// const MONGO_URI = process.env.MONGODB_URI;
 
 const gems = [
   {

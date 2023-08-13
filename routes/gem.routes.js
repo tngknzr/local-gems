@@ -18,6 +18,7 @@ router.get('/', isLoggedIn, (req, res) => {
 router.post('/create', fileUploader.single('imgUrl'), (req, res) => {
   console.log(req.file);
   const { gemName, description, location, venueName, category } = req.body;
+  console.log('req.session:', req.session);
   const createdBy = req.session.currentUser._id;
   let imgUrl = req.file ? req.file.path : undefined;
   Gem.create({ gemName, description, location, venueName, imgUrl, category, createdBy })

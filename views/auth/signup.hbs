@@ -1,44 +1,26 @@
-<div id="form">
+<div id="singup-form">
 
-  <h2>Signup</h2>
+  <h2 class="merri">Signup</h2>
 
   <form action="/signup" method="POST">
 
- 
-
-    <label> Username
-
+    <label class="mont"> Username
       <input type="text" name="username" placeholder="ironhacker" />
-
     </label>
 
- 
-
-    <label> Email
-
+    <label class="mont"> Email
       <input type="email" name="email" placeholder="rockstar@ironhack.com" />
-
     </label>
 
- 
-
-    <label> Password
-
+    <label class="mont"> Password
       <input type="password" name="password" placeholder="********" />
-
     </label>
 
- 
-
-    <button type="submit">Create account</button>
+    <button class="mont" type="submit">Create account</button>
     {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
   {{/if}}
 
- 
-
-    
-
   </form>
-
 </div>
+
