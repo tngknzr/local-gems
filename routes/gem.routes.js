@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Gem = require('../models/Gem.model');
 const { isLoggedIn } = require('../middleware/route-guard');
 const fileUploader = require('../config/cloudinary.config');
+const User = require('../models/User.model');
 
 router.get('/create', (req, res) => {
   res.render('create-gem', { userInSession: req.session.currentUser });
@@ -32,7 +33,6 @@ router.post('/create', fileUploader.single('imgUrl'), (req, res) => {
 router.get('/main', (req, res) => {
   Gem.find()
     .then((gems) => {
-      console.log(gems);
       res.render('main', { gems, userInSession: req.session.currentUser });
     })
     .catch((err) => {
@@ -45,7 +45,6 @@ router.get('/search', (req, res) => {
   const { localGem, location } = req.query;
   Gem.find({ gemName: { $regex: localGem }, location: location })
     .then((gems) => {
-      console.log(gems);
       if (gems.length === 0) {
         res.render('main', { errorMsg: 'Sorry no local gem within that category try another search' });
       } else {
@@ -79,8 +78,6 @@ router.get('/userInSession', (req, res) => {
   } else {
     userInSession = false;
   }
-
-  console.log(userInSession);
   res.json({ userInSession: userInSession });
 });
 
