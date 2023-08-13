@@ -12,6 +12,8 @@ const overlay = document.querySelector('.overlay');
 function closePopUp() {
   popUpClose.style.display = 'none';
   popUp.style.display = 'none';
+  body.classList.remove('active');
+  overlay.style.display = 'none';
 }
 popUpClose.addEventListener('click', closePopUp);
 
