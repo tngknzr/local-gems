@@ -7,6 +7,7 @@ const popUp = document.getElementById('pop-up');
 const popUpClose = document.getElementById('pop-up-close');
 const heartIcon = document.getElementById('heart-icon');
 const body = document.getElementById('body');
+const overlay = document.querySelector('.overlay');
 
 function closePopUp() {
   popUpClose.style.display = 'none';
@@ -31,6 +32,7 @@ fetch('/userInSession')
       popUp.style.display = 'block';
       popUpClose.style.display = 'block';
       body.classList.toggle('active');
+      overlay.classList.toggle('active');
     }
 
     const heartIcons = document.getElementsByClassName('heart-icon');

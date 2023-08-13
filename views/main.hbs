@@ -53,11 +53,11 @@
     </div>
 
     <div class='pop-up' id='pop-up'>
-      <h4 class='pop-up-heading'>Log in or sign up</h4>
+      <h4 class='pop-up-heading mt-5'>Log in or sign up</h4>
       <br />
       <i class='fa-solid fa-x pop-up-close' id='pop-up-close'></i>
       <div>
-        <form class='pop-up-form' id='pop-up-form' action='/login' method='POST'>
+        <form class='pop-up-form mt-5' id='pop-up-form' action='/login' method='POST'>
           <div class='pop-up-label-container'>
             <label for='email' class='label'>Email</label>
             <input id='email' type='email' name='email' placeholder='rockstar@localgems.com' />
@@ -66,7 +66,7 @@
             <label for='password' class='label'>Password</label>
             <input id='password' type='password' name='password' placeholder='********' />
           </div>
-          <button type='submit'>Continue</button>
+          <button class='create-btn' type='submit'>Continue</button>
           {{#if errorMessage}}
             <p class='error'>{{errorMessage}}</p>
           {{/if}}
@@ -74,6 +74,7 @@
       </div>
 
     </div>
+    <div class='overlay'></div>
 
   </div>
 </main>
