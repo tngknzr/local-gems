@@ -171,14 +171,6 @@ nav {
   transition: transform 0.2s;
 }
 
-.profile-gem-img {
-  width: 250px;
-  height: 250px !important;
-  object-fit: cover;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .gem-img:hover {
   transform: scale(1.1);
 }
@@ -337,6 +329,23 @@ nav {
   padding: 15px 25px;
   border-radius: 50px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* Profile */
+
+.profile-upload {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profile-gem-img {
+  width: 250px;
+  height: 250px !important;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* MEDIA QUERIES */
