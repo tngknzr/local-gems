@@ -8,6 +8,28 @@ const popUpClose = document.getElementById('pop-up-close');
 const heartIcon = document.getElementById('heart-icon');
 const body = document.getElementById('body');
 const overlay = document.querySelector('.overlay');
+const mobileBarBtn = document.getElementById('mobile-bar');
+const mobileBarMenu = document.querySelector('.mobile-menu');
+const mobileCloseBtn = document.getElementById('mobile-close');
+const mobileCloseMenu = document.querySelector('.mobile-close');
+const navUl = document.getElementById('nav-ul');
+const navBarContainer = document.getElementById('nav-bar');
+
+function clickMobileBar() {
+  console.log('works');
+  mobileBarMenu.classList.toggle('active');
+  mobileCloseMenu.classList.toggle('active');
+  navUl.classList.toggle('active');
+  console.log(navUl);
+  if (navUl.style.display === 'block') {
+    navUl.style.display = 'none';
+  } else {
+    navUl.style.display = 'block';
+  }
+}
+
+mobileBarBtn.addEventListener('click', clickMobileBar);
+mobileCloseBtn.addEventListener('click', clickMobileBar);
 
 fetch('/userInSession')
   .then((response) => {

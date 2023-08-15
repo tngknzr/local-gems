@@ -21,9 +21,9 @@
   </head>
   <body id='body'>
 
-    <nav id='nav-bar'>
+    <nav class='nav-bar' id='nav-bar'>
       <a href='/'> <img class='logo' src='https://i.postimg.cc/3J3gxSrr/local-gems-update-3-no-bg.png' alt='logo' /></a>
-      <ul class='nav-ul'>
+      <ul class='nav-ul' id='nav-ul'>
         <li><a class='click-nav' href='/'>Home</a></li>
         <li><a class='click-nav' href='/main'>Local Gems</a></li>
 
@@ -33,7 +33,7 @@
           <li><a class='click-nav' href='/create'>Create</a></li>
           <li>
             <form action='/logout' method='POST'>
-              <button id="logout-btn" >Logout</button>
+              <button id='logout-btn'>Logout</button>
             </form></li>
 
         {{/if}}
@@ -41,10 +41,18 @@
           <li> <a class='click-nav' href='/signup'>Signup</a></li>
           <li><a class='click-nav' href='/login'>Login</a></li>
         {{/unless}}
-        <i class='fa-solid fa-bars mobile-menu'></i>
+
       </ul>
+      <div class='buttons-container'>
+        <button class='mobile-menu-container' id='mobile-bar'>
+          <i class='fa-solid fa-bars mobile-menu mobile-bar'></i>
+        </button>
+        <button class='mobile-menu-container' id='mobile-close'>
+          <i class='fa-solid fa-x mobile-menu mobile-close'></i>
+        </button>
+      </div>
+
     </nav>
-    <hr />
 
     {{{body}}}
 
