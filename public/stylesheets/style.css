@@ -68,7 +68,7 @@ nav {
 }
 
 .main-form {
-  margin-top: 25px;
+  margin-top: 150px;
   margin-left: 25px;
 }
 
@@ -348,10 +348,6 @@ nav {
     flex-direction: column;
     align-items: center;
     width: auto;
-  }
-
-  .main-form {
-    margin-top: 150px;
   }
 
   .main-input {
