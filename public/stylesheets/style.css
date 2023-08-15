@@ -330,6 +330,11 @@ nav {
 
   .nav-ul.active {
     display: block;
+    display: block;
+    z-index: 1000;
+    background: #ff385c;
+    position: fixed;
+    bottom: 100px;
   }
 
   .main-form-container {
