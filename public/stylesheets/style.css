@@ -334,7 +334,8 @@ nav {
     z-index: 1000;
     background: #ff385c;
     position: fixed;
-    bottom: 100px;
+    top: 99;
+    text-align: right;
   }
 
   .main-form-container {
