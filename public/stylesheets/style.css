@@ -182,8 +182,8 @@ hr {
   background-color: yellow;
   width: 500px;
   height: 500px;
-  position: absolute;
-  top: -1500;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -389,12 +389,10 @@ hr {
 .click-nav {
   color: aliceblue;
 }
-.logo{
-  background-color: #f1728a;
+.logo {
   border-radius: 50%;
-  
 }
-.logout-btn{
+.logout-btn {
   backface-visibility: hidden;
   white-space: nowrap;
   border-color: #7c7c7c;
@@ -417,7 +415,7 @@ hr {
   margin-top: 2%;
   bottom: 1%;
 }
-#closing{
+#closing {
   margin-bottom: 7%;
 }
 #serpent {
@@ -426,8 +424,6 @@ hr {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   border-radius: 7px;
 }
-
-
 
 #profile-page {
   display: flex;
@@ -447,10 +443,9 @@ hr {
   height: 40vh;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-#profile-page > form > textarea{
+#profile-page > form > textarea {
   padding: 2%;
   border-radius: 5px;
-
 }
 
 #place-holder {
@@ -459,9 +454,8 @@ hr {
   border-radius: 5px;
   margin-bottom: 4%;
   padding: 10px;
-
 }
-#logout-btn{ 
+#logout-btn {
   background-color: #ff385c;
   border: 0px;
   color: #e6e6e6;
@@ -469,37 +463,32 @@ hr {
 #profile-page > h2 {
   margin-top: 2%;
   margin-bottom: 2%;
-  
 }
 #profile-page > form > h3 {
   margin-top: 2%;
   margin-bottom: 2%;
-  
 }
-#profile-page > form > textarea{
-  
+#profile-page > form > textarea {
   margin-bottom: 4%;
 }
 
-#up-gems > h3{
+#up-gems > h3 {
   margin-top: 10%;
   margin-bottom: 2%;
 }
-#up-gems > img{
+#up-gems > img {
   margin-top: 2%;
   margin-bottom: 2%;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   border-radius: 5%;
- 
 }
-#up-gems > form{
+#up-gems > form {
   margin-top: 2%;
   margin-bottom: 2%;
 }
-#up-gems > form > button{
+#up-gems > form > button {
   margin-top: 2%;
   margin-bottom: 2%;
-  
 }
 .merri {
   font-family: 'Merriweather', serif;
@@ -507,7 +496,6 @@ hr {
 .mont {
   font-family: 'Montserrat', sans-serif;
 }
-
 
 /* singupbelow */
 #singup-form {
@@ -523,17 +511,17 @@ hr {
   align-items: center;
   margin-left: 3%;
 }
-#singup-form > form > label{
+#singup-form > form > label {
   margin: 6%;
 }
-#singup-form > form > label >input {
+#singup-form > form > label > input {
   padding: 3px;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 #singup-form > form > button {
-  background-color:#ff385c;
+  background-color: #ff385c;
   margin-right: 20%;
   padding: 10px;
   border-radius: 7px;
@@ -549,23 +537,23 @@ hr {
   justify-content: center;
   align-items: center;
 }
-#login-form >form {
-   display: flex;
+#login-form > form {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#login-form > form > label{
+#login-form > form > label {
   margin: 6%;
 }
-#login-form > form > label >input {
+#login-form > form > label > input {
   padding: 3px;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 #login-form > form > button {
-  background-color:#ff385c;
+  background-color: #ff385c;
   margin-right: 20%;
   padding: 10px;
   border-radius: 7px;
