@@ -7,6 +7,7 @@
 
 body {
   position: relative;
+  color: #0e1111;
 }
 
 #body.active {
@@ -22,15 +23,28 @@ body {
   height: auto;
 }
 
+nav,
+.main-submit-btn,
+.create-btn {
+  background: #ff385c;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
-  background: #ff385c;
 }
 
 .nav-bar {
   position: relative;
   z-index: 1;
+  top: 0;
+}
+
+.nav-ul,
+.main-input,
+.select-container .select-input,
+.create-form-container {
+  padding: 25px;
 }
 
 .nav-ul {
@@ -39,18 +53,20 @@ nav {
   justify-content: end;
   gap: 25px;
   font-size: 20px;
-  padding: 25px 25px;
-
-  /*  */
   position: absolute;
   right: 0px;
   left: 0px;
   margin-right: 50px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav-ul a {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
+}
+
+.nav-ul a:hover {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .mobile-menu {
@@ -81,16 +97,10 @@ nav {
   border-radius: 50px;
   width: 1000px;
   margin-bottom: 25px;
-  padding: 25px;
   font-size: 20px;
 }
 
-.select-container {
-  text-align: center;
-}
-
 .select-container .select-input {
-  padding: 25px;
   font-size: 20px;
   width: 250px;
 }
@@ -109,12 +119,17 @@ nav {
 
 .main-submit-btn {
   padding: 15px;
-  background: #ff385c;
   border: none;
   font-size: 26px;
   border-radius: 50px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.main-submit-btn:hover,
+.create-btn:hover {
+  color: #ffffff;
+  background-color: #0e1111;
 }
 
 .main-img-container {
@@ -139,12 +154,12 @@ nav {
   grid-template-columns: repeat(3, 1fr);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  text-align: center;
   gap: 15px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .gem-info-container {
-  margin-top: 30px;
+  margin-bottom: 25px;
 }
 
 .gem-img {
@@ -229,12 +244,7 @@ nav {
 }
 
 .pop-up-heading {
-  text-align: center;
   padding-top: 25px;
-}
-
-.pop-up-form {
-  text-align: center;
 }
 
 .pop-up-label-container {
@@ -261,7 +271,6 @@ nav {
 /* Gems Page */
 
 .error {
-  text-align: center;
   display: block;
   font-size: 26px;
   color: #ff385c;
@@ -270,8 +279,12 @@ nav {
 .gem-description {
   font-size: 18px;
   color: grey;
-  font-weight: 100;
-  text-align: center;
+  font-weight: 400;
+}
+
+.create-gem-heading {
+  margin-top: 150px;
+  font-family: 'Merriweather', serif;
 }
 
 .gems-searched {
@@ -289,14 +302,19 @@ nav {
 
 /* Create Gems Page */
 
+.create-local-gem-heading {
+  margin-top: 150px;
+  font-family: 'Merriweather', serif;
+}
+
 .create-form-container {
   margin: 75px auto;
   display: flex;
   justify-content: center;
   border: 10px solid #ff385c;
-  padding: 25px;
   width: 500px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .create-form {
@@ -313,16 +331,12 @@ nav {
   font-size: 20px;
 }
 
-.create-btn-container {
-  text-align: center;
-}
-
 .create-btn {
-  color: white;
-  background: #ff385c;
+  color: #ffffff;
   border: none;
   padding: 15px 25px;
   border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /* MEDIA QUERIES */
@@ -357,7 +371,6 @@ nav {
   .main-input {
     width: 250px;
     margin: 0 auto 25px auto;
-    text-align: center;
     font-size: 18px;
     height: 10px;
   }
@@ -414,7 +427,6 @@ nav {
   .main-input {
     width: 250px;
     margin: 0 auto 25px auto;
-    text-align: center;
     font-size: 18px;
     height: 10px;
   }
@@ -437,7 +449,6 @@ nav {
     border-radius: 50px;
     width: 1000px;
     margin-bottom: 25px;
-    padding: 25px;
     font-size: 20px;
   }
 }
