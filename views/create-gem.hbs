@@ -27,7 +27,8 @@
     </div>
     <div>
       <label class='label' for='createdBy'>Created By:</label>
-      <input class='create-input' id='createdBy' type='text' name='createdBy' required='true' />
+      <input class='create-input' id='createdBy' type='text' name='createdBy' value='{{userInSession.username}}' required='true' />
+
     </div>
     <div class='create-btn-container'>
       <button class='create-btn' type='submit'>Submit</button>

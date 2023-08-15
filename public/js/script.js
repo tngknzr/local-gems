@@ -7,12 +7,26 @@ const popUp = document.getElementById('pop-up');
 const popUpClose = document.getElementById('pop-up-close');
 const heartIcon = document.getElementById('heart-icon');
 const body = document.getElementById('body');
+const overlay = document.querySelector('.overlay');
+const mobileBarBtn = document.getElementById('mobile-bar');
+const mobileBarMenu = document.querySelector('.mobile-menu');
+const mobileCloseBtn = document.getElementById('mobile-close');
+const mobileCloseMenu = document.querySelector('.mobile-close');
+const navUl = document.getElementById('nav-ul');
+const navBarContainer = document.getElementById('nav-bar');
 
-function closePopUp() {
-  popUpClose.style.display = 'none';
-  popUp.style.display = 'none';
+function clickMobileBar() {
+  mobileBarMenu.classList.toggle('active');
+  mobileCloseMenu.classList.toggle('active');
+  navUl.classList.toggle('active');
+  if (navUl.style.display === 'block') {
+    navUl.style.display = 'none';
+  } else {
+    navUl.style.display = 'block';
+  }
 }
-popUpClose.addEventListener('click', closePopUp);
+mobileBarBtn.addEventListener('click', clickMobileBar);
+mobileCloseBtn.addEventListener('click', clickMobileBar);
 
 fetch('/userInSession')
   .then((response) => {
@@ -20,37 +34,28 @@ fetch('/userInSession')
     return response.json();
   })
   .then((data) => {
-    console.log(data);
     const userInSession = data.userInSession;
+    const heartIcons = document.getElementsByClassName('heart-icon');
+    for (let i = 0; i < heartIcons.length; i++) {
+      heartIcons[i].addEventListener('click', clickHeart);
+    }
     function clickHeart(event) {
       if (userInSession) {
         event.target.classList.toggle('active');
         return;
       }
-      console.log('click heart works');
       popUp.style.display = 'block';
       popUpClose.style.display = 'block';
       body.classList.toggle('active');
-    }
-
-    const heartIcons = document.getElementsByClassName('heart-icon');
-    for (let i = 0; i < heartIcons.length; i++) {
-      heartIcons[i].addEventListener('click', clickHeart);
+      overlay.classList.toggle('active');
     }
   })
   .catch((error) => console.log('Error:', error));
 
-// function changeCity() {
-//   const success = (position) => {
-//     console.log(position);
-//     const latitude = position.coords.latitude;
-//     const longitude = position.coords.longitude;
-//     console.log(latitude, longitude);
-//   };
-
-//   navigator.geolocation.getCurrentPosition(success);
-// }
-
-// document.getElementById('main-form').addEventListener('submit', changeCity);
-
-// const gemInfoContainer = document.getElementById('gem-info-container');
+function closePopUp() {
+  popUpClose.style.display = 'none';
+  popUp.style.display = 'none';
+  body.classList.remove('active');
+  overlay.classList.remove('active');
+}
+popUpClose.addEventListener('click', closePopUp);
