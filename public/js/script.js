@@ -24,7 +24,7 @@ function clickMobileBar() {
   } else {
     navUl.style.display = 'block';
   }
-
+}
 mobileBarBtn.addEventListener('click', clickMobileBar);
 mobileCloseBtn.addEventListener('click', clickMobileBar);
 
