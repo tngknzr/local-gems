@@ -16,17 +16,14 @@ const navUl = document.getElementById('nav-ul');
 const navBarContainer = document.getElementById('nav-bar');
 
 function clickMobileBar() {
-  console.log('works');
   mobileBarMenu.classList.toggle('active');
   mobileCloseMenu.classList.toggle('active');
   navUl.classList.toggle('active');
-  console.log(navUl);
   if (navUl.style.display === 'block') {
     navUl.style.display = 'none';
   } else {
     navUl.style.display = 'block';
   }
-}
 
 mobileBarBtn.addEventListener('click', clickMobileBar);
 mobileCloseBtn.addEventListener('click', clickMobileBar);
