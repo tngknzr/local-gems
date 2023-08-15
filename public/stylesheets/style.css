@@ -348,6 +348,11 @@ nav {
   cursor: pointer;
 }
 
+.profile-carousel {
+  width: 500px !important;
+  height: auto !important;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 600px) {
