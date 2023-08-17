@@ -98,6 +98,7 @@ router.get('/userProfile', (req, res) => {
       console.log(err);
     });
 });
+
 router.get('/createProfile', (req, res) => res.render('user/user-profile'));
 
 router.post('/userProfile', fileUploader.single('profileUrl'), (req, res) => {

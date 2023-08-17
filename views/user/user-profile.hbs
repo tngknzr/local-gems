@@ -2,10 +2,10 @@
 
 {{#if userInSession}}
 
-  <h2 class="merri">Welcome, {{userInSession.username}}!</h2>
+  
 
   <form action='/userProfile' method='post' enctype='multipart/form-data'>
-
+    <h2 id="welcome-user" class="merri">Welcome, {{userInSession.username}}!</h2>
     <label class="mont" for='imgUrl'>
       Upload Profile Picture
 
@@ -21,7 +21,7 @@
 
     <textarea class="mont" name='description' id='' cols='30' rows='10'>{{userInSession.description}}</textarea>
 
-    <button class='submit-btn mont' >Confirm details</button>
+    <button class='main-submit-btn mont' >Confirm details</button>
   </form>
 
   <div id="up-gems">
@@ -32,7 +32,7 @@
 
       <h3 class='gem-description merri'>"{{description}}"</h3>
       <form action='/gems/{{this._id}}/delete' method='POST'>
-        <button class='submit-btn mont' >Delete Gem</button>
+        <button class='main-submit-btn mont' >Delete Gem</button>
       </form>
 
     {{/each}}
