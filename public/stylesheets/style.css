@@ -348,9 +348,15 @@ nav {
   cursor: pointer;
 }
 
-.profile-carousel {
-  width: 500px !important;
-  height: auto !important;
+.profile-upload-btn {
+  padding: 15px;
+  border: none;
+  font-size: 26px;
+  border-radius: 50px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-size: 16px;
+  margin-bottom: 50px;
 }
 
 /* MEDIA QUERIES */
@@ -534,13 +540,12 @@ nav {
 }
 
 #profile-page {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#welcome-user{
+#welcome-user {
   margin-top: 50px;
 }
 #profile-page > form {
@@ -551,7 +556,6 @@ nav {
   align-items: center;
 }
 #profile-page > form > img {
-  
   border-radius: 5px;
   width: 30vw;
   height: 40vh;
@@ -613,7 +617,6 @@ nav {
 
 /* singupbelow */
 #singup-form {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
