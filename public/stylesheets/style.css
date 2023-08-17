@@ -356,6 +356,10 @@ nav {
 /* MEDIA QUERIES */
 
 @media (max-width: 600px) {
+  .logo {
+    width: 50px;
+  }
+
   .nav-ul {
     display: none;
     top: 0;
@@ -364,16 +368,16 @@ nav {
 
   .nav-ul.active {
     display: block;
-    display: block;
-    z-index: 1000;
+    z-index: -5;
     background: #ff385c;
     position: fixed;
-    top: 99;
     width: 100%;
-    height: 50%;
+    height: 100%;
     top: 0px;
-    z-index: 0;
-    margin-top: 100px;
+    margin-top: 0;
+    padding-top: 75px;
+    right: 0;
+    line-height: 2;
   }
 
   .main-form-container {
@@ -407,14 +411,18 @@ nav {
     width: 20%;
     position: fixed;
     right: 0;
+    left: 0;
   }
 
   .mobile-menu {
     display: block;
     position: absolute;
-    top: 25px;
-    font-size: 50px;
     color: white;
+    font-size: 25px;
+    top: 10px;
+    left: 325px;
+    padding-right: 10px;
+    right: 0px;
   }
 
   .mobile-bar.active {
@@ -427,6 +435,21 @@ nav {
 
   .mobile-close.active {
     display: block;
+  }
+
+  .profile-upload {
+    grid-template-columns: 1fr;
+  }
+
+  .create-local-gem-heading {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 24px;
+  }
+
+  .create-form-container {
+    margin: auto;
+    width: auto;
   }
 }
 
