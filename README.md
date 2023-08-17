@@ -1,10 +1,18 @@
 # local-gems
 
-[PLACE_FOR_YOUR_IMAGE]
+<div>
+    <img src="public/images/local-gems.cyclic.app-desktop.png?raw=true" alt="Desktop Screenshot" title="Desktop Screenshot" width="500" height="500" style="object-fit: cover;">
+</div>
+<div>
+  <img src="public/images/local-gems-main-screenshot.png?raw=true" alt="Desktop Screenshot" title="Desktop Screenshot" width="500">
+</div>
 
-[PLACE_TO_ADD_LINK_FOR_DEPLOYED_VERSION]
+
+
+
+# Deployed site link
+https://local-gems.cyclic.app/
  
-
 Local Gems is your community's digital treasure map, uncovering the hidden gems and unique delights right in your neighborhood.
 
 - Simply plug in the name and city of the local charm you're on the hunt for.
@@ -19,16 +27,14 @@ Local Gems is your community's digital treasure map, uncovering the hidden gems 
 
 # Installation
 
-
-
-**Example:**
-
 To install local-gems locally, please follow the steps below:
   - Clone repo to your machine
   - Open the root of the project and install all dependencies with `npm i` / `yarn`
   - Project has various scripts to run:
-    - `npm start` - running local version
-    - `npm run test` - run tests
+    -  `node seed.js` - (cd into the bin folder first and run this command)
+    - `npm run dev` - running local version
+  
+      
 **Mongo atlas account** :
 **Step 1 | Create a MongoDB Atlas Account**
 
@@ -94,41 +100,42 @@ To install local-gems locally, please follow the steps below:
     From the Driver dropdown, select Node.js and the latest version from the Version dropdown. Copy the provided connection string.
     Check the visual
 
-    IMPORTANT: Save the copied connection string. You’ll need it in the later step when deploying your Node.js application to Fly.io. You should also update the copied connection string in the following way:
-        Replace <password> with the password for the created user.
-        Replace myFirstDatabase with the name of the database that connections will use by default.
-
 **Cloudinary setup**
 
+Cloudinary provides a comprehensive cloud-based image management solution.
+
+Navigate to https://cloudinary.com/ and create your account.
+
+**Configuration**
+
+ Go to the terminal and run this command:
+
 $ npm install cloudinary multer multer-storage-cloudinary
-# .env
 
- 
+Now  go to the .env file and paste the values from your Cloudinary account
 
-PORT=3000 # already was in .env
+# we should add the following
 
-# we should add the following:
+<img src="public/images/cloudinary-env-info.png?raw=true" alt="Desktop Screenshot" title="Desktop Screenshot">
 
-CLOUDINARY_NAME=your-CLOUDINARY-name-here
 
-CLOUDINARY_KEY=your-CLOUDINARY-key-here
 
-CLOUDINARY_SECRET=your-CLOUDINARY-secret-here
-You can find this info on your Cloudinary profile page.
+# What have we learned
 
-# What I have learned
+- Routing: We optimized site navigation, ensuring user-friendly and efficient transitions
+- Sessions and Cookies: We implemented sessions and cookies for a tailored user experience.
+- Pair Programming: We made sure to collaborate when needed to ensure we stayed on track with our deadlines.
+- Front-end & Back-end Development: We connected the visual and the functional integrating user interface design with backend logic
+- Express and MongoDB: We were able to refine our skills leading to optimal backend performance.
+- Data Structuring: Proper database structuring was essential ensuring efficient data retrieval.
+- Data Flow Management: We managed the data flow, enhancing site responsiveness and efficiency.
 
-We have practiced lots with routing, sessions, cookies, pair programming, a whole front end-back end experience. 
+All in all, this project has been an amazing learning experience in our coding journey. Thanks for stopping by to learn more about it!
 
-**Example:**
-
-While I was building local-gems I have learned the fundamentals of Express and Mongodb. I learned what the importances of the models structuring, and what works best for my current application. We have understood better the flow of the data, with pulling, the information of ...
 
 # What issues have we faced and how we resolved them
 
-**Example:**
-
-Our main challenge was working with GitHub, pulling, pushing and merging our local branches with the remote branches.
+One of our primary hurdles was mastering version control with GitHub. Initially, tasks like pulling, pushing, and merging our local branches with the remote ones proved to be challenging. However, with time and practice, we got the hang of it, streamlining our collaborative efforts and ensuring smooth project progression.
 
 # Source
 
