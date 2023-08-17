@@ -63,7 +63,7 @@ const gems = [
 ];
 
 mongoose
-  .connect(MONGO_URI)
+  .connect("mongodb+srv://agustin2:1234@cluster1.hyph5r4.mongodb.net/local-gems"  )
   .then((x) => {
     console.log(`Connected to Mongo database: "${x.connections[0].name}"`);
 

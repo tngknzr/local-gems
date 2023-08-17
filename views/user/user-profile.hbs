@@ -2,27 +2,35 @@
 
   {{#if userInSession}}
 
-    <h2 class='merri'>Welcome, {{userInSession.username}}!</h2>
 
-    <form action='/userProfile' method='post' enctype='multipart/form-data'>
+  
 
-      <label class='mont' for='imgUrl'>
-        Upload Profile Picture
+  <form action='/userProfile' method='post' enctype='multipart/form-data'>
+    <h2 id="welcome-user" class="merri">Welcome, {{userInSession.username}}!</h2>
+    <label class="mont" for='imgUrl'>
+      Upload Profile Picture
 
-      </label>
-      <img src='{{userInSession.imgProfile}}' alt='' />
-      <input id='imgUrl' type='file' name='profileUrl' />
-      <h3 class='merri'>About me</h3>
+    </label>
+    <img class="img-fluid" src='{{userInSession.imgProfile}}' alt='' />
+    <input id='imgUrl' type='file' name='profileUrl' />
+    <h3 class="merri">About me</h3>
 
-      <div class='mont' id='place-holder'>
-        {{! heere goes the texttareadescription }}
-        {{userInSession.description}}
-      </div>
+    <div class="mont" id="place-holder">
+      {{! heere goes the texttareadescription }}
+      {{userInSession.description}}
+    </div>
+
+    <textarea class="mont" name='description' id='' cols='30' rows='10'>{{userInSession.description}}</textarea>
+
+    <button class='main-submit-btn mont' >Confirm details</button>
+  </form>
+
 
       <textarea class='mont' name='description' id='' cols='30' rows='10'>{{userInSession.description}}</textarea>
 
       <button class='submit-btn mont'>Confirm details</button>
     </form>
+
 
     <h3 class='merri mt-5 mb-5' id=''>Your uploaded gems:</h3>
     <div class='profile-upload text-center' id='up-gems'>
@@ -37,6 +45,7 @@
         </div>
       {{/each}}
     </div>
+
 
   {{else}}
     <p class='mont'>Still no logged in user, sorry!</p>
