@@ -1,6 +1,7 @@
-<div id="profile-page">
+<div id='profile-page'>
 
-{{#if userInSession}}
+  {{#if userInSession}}
+
 
   
 
@@ -24,21 +25,29 @@
     <button class='main-submit-btn mont' >Confirm details</button>
   </form>
 
-  <div id="up-gems">
-    <h3 class="merri" id="">Your uploaded gems:</h3>
-    {{#each gems}}
 
-      <img class='profile-gem-img' src='{{imgUrl}}' alt='local gem' />
+      <textarea class='mont' name='description' id='' cols='30' rows='10'>{{userInSession.description}}</textarea>
 
-      <h3 class='gem-description merri'>"{{description}}"</h3>
-      <form action='/gems/{{this._id}}/delete' method='POST'>
-        <button class='main-submit-btn mont' >Delete Gem</button>
-      </form>
+      <button class='submit-btn mont'>Confirm details</button>
+    </form>
 
-    {{/each}}
-  </div>
 
-{{else}}
-  <p class="mont">Still no logged in user, sorry!</p>
-{{/if}}
+    <h3 class='merri mt-5 mb-5' id=''>Your uploaded gems:</h3>
+    <div class='profile-upload text-center' id='up-gems'>
+      {{#each gems}}
+        <div class='profile-upload-info'>
+          <img class='profile-gem-img' src='{{imgUrl}}' alt='local gem' />
+          <h3 class='mt-3'>{{venueName}}</h3>
+          <h3 class='gem-description merri'>"{{description}}"</h3>
+          <form action='/gems/{{this._id}}/delete' method='POST'>
+            <button class='submit-btn mont main-submit-btn fs-6 p-2'>Delete Gem</button>
+          </form>
+        </div>
+      {{/each}}
+    </div>
+
+
+  {{else}}
+    <p class='mont'>Still no logged in user, sorry!</p>
+  {{/if}}
 </div>
